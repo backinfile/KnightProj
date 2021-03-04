@@ -1,11 +1,13 @@
 package com.backinfile.client.stage;
 
+import com.backinfile.client.screen.BaseScreen;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
 public abstract class BaseStage extends Stage {
 	private boolean active;
+	private BaseScreen screen;
 
 	public BaseStage() {
 		super();
@@ -27,5 +29,13 @@ public abstract class BaseStage extends Stage {
 
 	public boolean isActive() {
 		return active;
+	}
+
+	public void setScreen(BaseScreen screen) {
+		this.screen = screen;
+	}
+
+	public BaseScreen getScreen() {
+		return screen;
 	}
 }

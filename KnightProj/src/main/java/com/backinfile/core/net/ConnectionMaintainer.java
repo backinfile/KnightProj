@@ -2,6 +2,9 @@ package com.backinfile.core.net;
 
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.DelayQueue;
+import java.util.concurrent.Delayed;
+import java.util.concurrent.TimeUnit;
 
 import com.backinfile.core.DispatchThreads;
 import com.backinfile.core.GameMessage;
@@ -10,7 +13,7 @@ import com.backinfile.support.Utils2;
 
 public class ConnectionMaintainer {
 	private final ConcurrentLinkedQueue<Connection> waitForRun = new ConcurrentLinkedQueue<>();
-	private final ConcurrentLinkedQueue<Connection> waitForReschedule = new ConcurrentLinkedQueue<>();
+	private final DelayQueue<Connection> waitForReschedule = new DelayQueue<>();
 	private final ConcurrentHashMap<Long, Connection> allConnections = new ConcurrentHashMap<>();
 
 	private final ConcurrentHashMap<Long, ConcurrentLinkedQueue<GameMessage>> clientMessages = new ConcurrentHashMap<>();

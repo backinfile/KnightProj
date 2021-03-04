@@ -50,6 +50,9 @@ public class Settings {
 	}
 
 	public void loadSync() {
+		if (Gdx.app == null) {
+			return;
+		}
 		Preferences pref = Gdx.app.getPreferences(PREF_FILE_NAME);
 
 		Field[] declaredFields = Settings.class.getDeclaredFields();

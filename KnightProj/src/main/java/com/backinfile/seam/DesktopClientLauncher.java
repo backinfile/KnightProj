@@ -1,4 +1,4 @@
-package com.backinfile.KnightProj;
+package com.backinfile.seam;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -6,14 +6,13 @@ import java.awt.Toolkit;
 import com.backinfile.core.Const;
 import com.backinfile.core.Log;
 import com.backinfile.core.Settings;
-import com.backinfile.seam.GameStartup;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Files.FileType;
 import com.badlogic.gdx.Graphics.DisplayMode;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 
-public class DesktopLauncher {
+public class DesktopClientLauncher {
 	public static void main(String[] arg) {
 //		Settings.Init();
 
@@ -27,7 +26,7 @@ public class DesktopLauncher {
 		config.resizable = false;
 //		config.addIcon("favicon.ico", FileType.Internal);
 
-		new LwjglApplication(new GameStartup(), config);
+		new LwjglApplication(new ClientStartup(), config);
 
 //		Gdx.app.postRunnable(() -> {
 //			DisplayMode displayMode = Gdx.graphics.getDisplayMode();

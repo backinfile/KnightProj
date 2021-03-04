@@ -70,10 +70,10 @@ public class ConfirmStage extends BaseStage {
 
 		label.setText(text);
 		label.setX(getWidth() / 2 - label.getWidth() / 2);
-		label.setY(getHeight() / 2 - label.getHeight() / 2 + 30);
+		label.setY(getHeight() / 2 + label.getHeight() / 2);
 
 		confirm.setX(getWidth() / 2 - label.getWidth() / 2);
-		confirm.setY(getHeight() / 2 - label.getHeight() / 2 - 100);
+		confirm.setY(getHeight() / 2 - label.getHeight() * 3 / 2);
 
 		alphaMask.setPosition(0, 0);
 		alphaMask.setSize(getWidth(), getHeight());

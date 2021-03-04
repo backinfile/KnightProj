@@ -28,7 +28,6 @@ public class GameServer {
 
 	public void start() {
 		Log.game.info("GameServer start");
-		Log.game.error("GameServer start", new SysException());
 		try {
 			serverSocket = Gdx.net.newServerSocket(Protocol.TCP, Const.GAMESERVER_PORT, null);
 		} catch (Exception e) {

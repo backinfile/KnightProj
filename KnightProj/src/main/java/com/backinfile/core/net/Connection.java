@@ -4,14 +4,17 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.Delayed;
+import java.util.concurrent.TimeUnit;
 
 import com.backinfile.core.GameMessage;
 import com.backinfile.core.Log;
+import com.backinfile.support.Time2;
 import com.backinfile.support.Utils2;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.net.Socket;
 
-public class Connection {
+public class Connection implements Delayed {
 	public static final String TAG = Connection.class.getSimpleName();
 
 	private Socket socket;
@@ -19,6 +22,8 @@ public class Connection {
 	private ConcurrentLinkedQueue<GameMessage> reciveList = new ConcurrentLinkedQueue<GameMessage>();
 	private InputStream inputStream;
 	private OutputStream outputStream;
+	private long time;
+	public static final int HZ = 1;
 
 	public String name;
 	public long id;
@@ -49,6 +54,9 @@ public class Connection {
 	}
 
 	public void pulse() {
+		time = Time2.getCurrentTimestamp();
+		Log.net.debug("pulse");
+
 		if (!socket.isConnected()) {
 			return;
 		}
@@ -83,4 +91,16 @@ public class Connection {
 		}
 		return name + "(" + id + ")";
 	}
+
+	@Override
+	public int compareTo(Delayed o) {
+		Connection connection = (Connection) o;
+		return Long.compare(time, connection.time);
+	}
+
+	@Override
+	public long getDelay(TimeUnit unit) {
+		return time + 1000 / 60 - Time2.getCurrentTimestamp();
+	}
+
 }

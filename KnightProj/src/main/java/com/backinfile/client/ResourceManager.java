@@ -31,10 +31,10 @@ public class ResourceManager {
 		Log.game.info("start loading resource...");
 
 		// ========图片
-		Chap1Heros = new GridTexture("card/chap1/hero.png", 7, 2);
-		CardBorder = new TextureRegion(new Texture(Gdx.files.internal("card/tools/border.png")));
-		CardFrontStore = new TextureRegion(new Texture(Gdx.files.internal("card/tools/store.png")));
-		CardFrontOccupy = new TextureRegion(new Texture(Gdx.files.internal("card/tools/occupy.png")));
+		Chap1Heros = new GridTexture("image/card/chap1/hero.png", 7, 2);
+		CardBorder = new TextureRegion(new Texture(Gdx.files.internal("image/card/tools/border.png")));
+		CardFrontStore = new TextureRegion(new Texture(Gdx.files.internal("image/card/tools/store.png")));
+		CardFrontOccupy = new TextureRegion(new Texture(Gdx.files.internal("image/card/tools/occupy.png")));
 
 		DefaultButtonUp = newColorTexture(Color.DARK_GRAY);
 		DefaultButtonDown = newColorTexture(Color.LIGHT_GRAY);

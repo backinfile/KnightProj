@@ -12,7 +12,7 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 
-public class GameStartup extends Game {
+public class ClientStartup extends Game {
 
 	@Override
 	public void create() {
