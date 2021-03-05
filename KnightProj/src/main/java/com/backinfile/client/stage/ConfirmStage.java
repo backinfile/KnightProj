@@ -86,4 +86,5 @@ public class ConfirmStage extends BaseStage {
 	public void hide() {
 		setActive(false);
 	}
+	
 }

@@ -4,10 +4,8 @@ import com.backinfile.client.ResourceManager;
 import com.backinfile.client.screen.TestScreen;
 import com.backinfile.core.GameMessage;
 import com.backinfile.core.Log;
-import com.backinfile.core.Settings;
+import com.backinfile.core.ClientPref;
 import com.backinfile.core.event.RoomEvent;
-import com.backinfile.core.log.Logger;
-import com.backinfile.gen.pb.Msg.SCConnect;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
@@ -16,8 +14,7 @@ public class ClientStartup extends Game {
 
 	@Override
 	public void create() {
-		Settings.Init();
-		Logger.initLogFile();
+		ClientPref.Init();
 		GameMessage.collectAllMessage();
 		RoomEvent.collectEventListener();
 		ResourceManager.init();

@@ -5,7 +5,7 @@ import java.awt.Toolkit;
 
 import com.backinfile.core.Const;
 import com.backinfile.core.Log;
-import com.backinfile.core.Settings;
+import com.backinfile.core.ClientPref;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Files.FileType;
 import com.badlogic.gdx.Graphics.DisplayMode;
@@ -17,15 +17,10 @@ public class DesktopClientLauncher {
 //		Settings.Init();
 
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
-		DisplayMode desktopDisplayMode = LwjglApplicationConfiguration.getDesktopDisplayMode();
 		config.title = Const.WINDOW_TITLE;
-//		config.width = (int) (desktopDisplayMode.width * 0.7f);
-//		config.height = (int) (desktopDisplayMode.height * 0.7f);
-		config.width = 1200;
-		config.height = 860;
+		config.width = Const.WINDOW_WIDTH;
+		config.height = Const.WINDOW_HEIGHT;
 		config.resizable = false;
-//		config.addIcon("favicon.ico", FileType.Internal);
-
 		new LwjglApplication(new ClientStartup(), config);
 
 //		Gdx.app.postRunnable(() -> {

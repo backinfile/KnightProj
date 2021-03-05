@@ -42,7 +42,7 @@ public class TestStage extends BaseStage {
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
 				Log.test.info("click test button");
-				getScreen().confirm("啊好久不是打开是看看");
+				getScreen().confirm(ResourceManager.KeywordStringContainer.get("attack").DESCRIPTION);
 			}
 		});
 

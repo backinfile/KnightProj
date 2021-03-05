@@ -14,6 +14,6 @@ public class RoomMessageHandler {
 
 	@MsgHandler
 	public static void onEnterRoom(Room room, SCConnect msg) {
-		Log.game.info("enter {0}", msg.getCode());
+		Log.game.info("enter {}", msg.getCode());
 	}
 }

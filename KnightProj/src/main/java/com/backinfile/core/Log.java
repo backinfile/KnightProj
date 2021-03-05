@@ -1,13 +1,14 @@
 package com.backinfile.core;
 
-import com.backinfile.core.log.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class Log {
-	public static final Logger game = new Logger("game");
-	public static final Logger core = new Logger("core");
-	public static final Logger net = new Logger("net");
-	public static final Logger event = new Logger("event");
-	public static final Logger server = new Logger("server");
-	public static final Logger client = new Logger("client");
-	public static final Logger test = new Logger("test");
+	public static final Logger game = LoggerFactory.getLogger("GAME");
+	public static final Logger core = LoggerFactory.getLogger("CORE");
+	public static final Logger net = LoggerFactory.getLogger("NET");
+	public static final Logger event = LoggerFactory.getLogger("EVENT");
+	public static final Logger server = LoggerFactory.getLogger("SERVER");
+	public static final Logger client = LoggerFactory.getLogger("CLIENT");
+	public static final Logger test = LoggerFactory.getLogger("TEST");
 }

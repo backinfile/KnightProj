@@ -39,7 +39,7 @@ public class DispatchThreads {
 			try {
 				run.apply();
 			} catch (Exception e) {
-				Log.core.error("线程运行出错：{0}", e);
+				Log.core.error("线程运行出错：{}", e);
 			}
 		}
 		abortedNum.incrementAndGet();

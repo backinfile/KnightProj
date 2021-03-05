@@ -3,9 +3,10 @@ package com.backinfile.client.stage;
 import com.backinfile.client.screen.BaseScreen;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.utils.Disposable;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
-public abstract class BaseStage extends Stage {
+public abstract class BaseStage extends Stage{
 	private boolean active;
 	private BaseScreen screen;
 

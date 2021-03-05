@@ -1,0 +1,91 @@
+syntax = "proto3";
+
+option java_package = "com.backinfile.gen.pb";
+
+option optimize_for = CODE_SIZE;
+
+//================
+// 结构体
+//================
+
+message DPlayer {
+	string name = 1;
+}
+
+enum EChatType {
+	Chat = 0;
+	System = 1;
+	Room = 2;
+	Private = 3;
+	Board = 4;
+}
+
+// 聊天信息
+message DChat {
+	DPlayer sender = 1;
+	DPlayer receiver = 2;
+	string content = 3;
+	EChatType type = 4;
+}
+
+message DMatchPlayer {
+	DPlayer player = 1;
+	int64 CD = 2;
+	bool ready = 3;
+}
+message DMatch {
+	
+	DMatchPlayer p1 = 1;
+	DMatchPlayer p2 = 2;
+}
+
+message DRoom {
+	string hostLocation = 1;
+	DPlayer host = 2;
+	repeated DPlayer players = 3;
+	repeated DChat lastestChats = 4;
+}
+
+message DCard {
+	int32 sn = 1;
+}
+message DBoard {
+	
+}
+
+//================
+// 连接
+//================
+
+// 连接后第一条消息
+message CSConnect {
+	string name = 1;
+}
+message SCConnect {
+	int32 code = 1;
+}
+
+message CSGetRoomInfo {
+}
+
+message SCGetRoomInfo {
+	DRoom room = 1;
+	DMatch match = 2;
+}
+message SCRoomUpdate {
+	DRoom room = 1;
+}
+message SCMatchUpdate {
+	DMatch match = 1;
+}
+
+message SCGameStart {
+	repeated DPlayer players = 1;
+	DBoard board = 2;
+}
+
+
+
+
+
+

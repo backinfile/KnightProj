@@ -1,6 +1,9 @@
 package com.backinfile.client;
 
 import com.backinfile.core.Log;
+import com.backinfile.json.CardStrings;
+import com.backinfile.json.JsonReader;
+import com.backinfile.json.KeywordStrings;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Pixmap;
@@ -27,6 +30,10 @@ public class ResourceManager {
 	// ======字体
 	public static BitmapFont DefaultFont;
 
+	// ======文本
+	public static StringContainer<KeywordStrings> KeywordStringContainer;
+	public static StringContainer<CardStrings> CardStringContainer;
+
 	public static void init() {
 		Log.game.info("start loading resource...");
 
@@ -44,6 +51,15 @@ public class ResourceManager {
 		// ======字体
 		DefaultFont = new BitmapFont(Gdx.files.internal("font/sarasa/sarasa.fnt"), false);
 		Log.game.info("resource loading complete");
+
+		// ======文本
+		JsonReader keywordsReader = new JsonReader(Gdx.files.internal("json/keywords.json"));
+		KeywordStringContainer = new StringContainer<KeywordStrings>(keywordsReader.parseAsKeywordStrings(),
+				KeywordStrings.getDefaultKeywordString());
+
+		JsonReader cardsReader = new JsonReader(Gdx.files.internal("json/cards.json"));
+		CardStringContainer = new StringContainer<CardStrings>(cardsReader.parseAsCardStrings(),
+				CardStrings.getDefaultCardString());
 	}
 
 	public static void dispose() {

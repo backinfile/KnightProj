@@ -57,7 +57,7 @@ public class GameServer {
 			}
 			if (socket != null) {
 				connectionMaintainer.addConnnect(new Connection(connectionIdMax++, socket));
-				Log.game.info("new connection addr:{0}", socket.getRemoteAddress());
+				Log.game.info("new connection addr:{}", socket.getRemoteAddress());
 			}
 		}
 	}

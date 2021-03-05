@@ -63,7 +63,7 @@ public class GameClient {
 		hints.socketTimeout = Const.CLIENT_CONNECT_TIME;
 		int reconnectTimes = 0;
 		while (reconnectTimes++ < Const.CLIENT_RECONNECT_TIMES) {
-			Log.net.info("connecting server..(the {0}th times)", reconnectTimes);
+			Log.net.info("connecting server..(the {}th times)", reconnectTimes);
 			socket = Gdx.net.newClientSocket(Protocol.TCP, host, port, hints);
 			if (socket != null && socket.isConnected()) {
 				justConnected = true;
@@ -99,7 +99,7 @@ public class GameClient {
 		if (justConnected) {
 			justConnected = false;
 			connection = new Connection(-1, socket);
-			Log.game.info("connect server success addr:{0}", socket.getRemoteAddress());
+			Log.game.info("connect server success addr:{}", socket.getRemoteAddress());
 		}
 
 		if (connection != null) {

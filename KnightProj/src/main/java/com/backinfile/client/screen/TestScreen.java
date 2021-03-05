@@ -11,16 +11,12 @@ import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 
 public class TestScreen extends BaseScreen {
-	public GameClient gameClient;
 
 	private int cnt = 0;
 	private TestStage testStage;
 
 	@Override
 	public void init() {
-		gameClient = new GameClient();
-		gameClient.setAddr("localhost", Const.GAMESERVER_PORT);
-		gameClient.start();
 
 		testStage = new TestStage(new ExtendViewport(Gdx.graphics.getWidth(), Gdx.graphics.getWidth()));
 		Gdx.input.setInputProcessor(testStage);
@@ -32,10 +28,6 @@ public class TestScreen extends BaseScreen {
 
 	@Override
 	public void render(float delta) {
-
-		if (gameClient != null && gameClient.isAlive()) {
-			gameClient.pulse();
-		}
 
 		if (cnt++ == 50) {
 //			if (gameClient != null) {

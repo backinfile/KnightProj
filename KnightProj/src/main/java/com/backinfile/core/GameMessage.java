@@ -68,7 +68,7 @@ public class GameMessage {
 				gameMessage.message = builder.build();
 				return gameMessage;
 			} catch (InvalidProtocolBufferException e) {
-				Log.core.error("decode game message failed class={0}", e, builder.getClass().getName());
+				Log.core.error("decode game message failed class={}", e, builder.getClass().getName());
 			}
 		}
 

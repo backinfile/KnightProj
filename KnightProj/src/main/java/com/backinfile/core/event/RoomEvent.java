@@ -28,7 +28,7 @@ public class RoomEvent {
 			try {
 				method.invoke(null, room, message);
 			} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
-				Log.event.error("method invoke error in fire event name={0}", e, message.getClass().getName());
+				Log.event.error("method invoke error in fire event name={}", e, message.getClass().getName());
 			}
 		}
 	}
