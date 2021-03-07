@@ -7,10 +7,12 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
+import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
+import com.badlogic.gdx.utils.Scaling;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
 public class TestStage extends BaseStage {
@@ -25,10 +27,12 @@ public class TestStage extends BaseStage {
 
 	@Override
 	public void init() {
-		actor = new Image(ResourceManager.CardFrontStore);
-		actor.setX(getWidth() / 2 - actor.getWidth() / 2);
-		actor.setY(getHeight() / 2 - actor.getHeight() / 2);
-		Log.test.info("show image");
+		setDebugAll(true);
+		Table table = new Table();
+		addActor(table);
+		table.setFillParent(true);
+
+		table.setBackground(new TextureRegionDrawable(ResourceManager.IntroBackground));
 
 		TextButtonStyle textButtonStyle = new TextButtonStyle();
 		textButtonStyle.font = ResourceManager.DefaultFont;
@@ -36,7 +40,7 @@ public class TestStage extends BaseStage {
 		textButtonStyle.down = new TextureRegionDrawable(ResourceManager.DefaultButtonDown);
 		button = new TextButton("Button", textButtonStyle);
 
-		addActor(button);
+		table.add(button);
 
 		button.addListener(new ClickListener() {
 			@Override

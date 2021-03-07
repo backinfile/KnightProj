@@ -15,6 +15,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Button.ButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
+import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
@@ -27,7 +28,7 @@ public class ConfirmStage extends BaseStage {
 	private Label label;
 	private LineButton confirm;
 	private Image alphaMask;
-	private Group group;
+	private Table table;
 	private Consumer<BaseScreen> callback = null;
 
 	private class ConfirmStageClickListener extends ClickListener {
@@ -47,15 +48,18 @@ public class ConfirmStage extends BaseStage {
 		label.setAlignment(Align.center);
 
 		confirm = new LineButton("确认");
-		confirm.getLabel().setFontScale(0.7f);
+		confirm.getLabel().setFontScale(0.8f);
 
-		alphaMask = new Image(ResourceManager.AlphaMask);
+		alphaMask = new Image();
 
-		group = new Group();
-		group.addActor(alphaMask);
-		group.addActor(confirm);
-		group.addActor(label);
-		addActor(group);
+		table = new Table();
+		table.setBackground(new TextureRegionDrawable(ResourceManager.AlphaMask));
+		table.setFillParent(true);
+		table.add(label);
+		table.row();
+
+		table.add(confirm).padTop(20f);
+		addActor(table);
 
 		confirm.addListener(new ConfirmStageClickListener());
 	}
@@ -66,17 +70,9 @@ public class ConfirmStage extends BaseStage {
 		oldInputProcessor = Gdx.input.getInputProcessor();
 		Gdx.input.setInputProcessor(this);
 
-		group.setVisible(true);
+		table.setVisible(true);
 
 		label.setText(text);
-		label.setX(getWidth() / 2 - label.getWidth() / 2);
-		label.setY(getHeight() / 2 + label.getHeight() / 2);
-
-		confirm.setX(getWidth() / 2 - label.getWidth() / 2);
-		confirm.setY(getHeight() / 2 - label.getHeight() * 3 / 2);
-
-		alphaMask.setPosition(0, 0);
-		alphaMask.setSize(getWidth(), getHeight());
 
 		this.callback = callback;
 
@@ -86,5 +82,5 @@ public class ConfirmStage extends BaseStage {
 	public void hide() {
 		setActive(false);
 	}
-	
+
 }

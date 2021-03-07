@@ -1,4 +1,4 @@
-/.settings/
+#/.settings/
 /target/
  
 # built application files
@@ -6,10 +6,10 @@
 *.ap_
  
 # files for the dex VM
-*.dex
+# *.dex
  
 # Java class files
-*.class
+# *.class
 # *.jar
  
 # generated files
@@ -17,6 +17,9 @@ bin/
 #gen/
  
 # Eclipse project files
-.classpath
+#.classpath
 .project
 .DS_Store
+
+# logs
+/logs

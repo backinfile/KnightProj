@@ -1,13 +1,8 @@
 package com.backinfile.client.screen;
 
 import com.backinfile.client.stage.TestStage;
-import com.backinfile.core.Const;
-import com.backinfile.core.GameMessage;
-import com.backinfile.gen.pb.Msg.SCConnect;
-import com.backinfile.seam.GameClient;
-import com.backinfile.seam.GameServer;
+import com.backinfile.core.Log;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 
 public class TestScreen extends BaseScreen {
@@ -18,10 +13,11 @@ public class TestScreen extends BaseScreen {
 	@Override
 	public void init() {
 
-		testStage = new TestStage(new ExtendViewport(Gdx.graphics.getWidth(), Gdx.graphics.getWidth()));
+		testStage = new TestStage(new ExtendViewport(Gdx.graphics.getWidth(), Gdx.graphics.getHeight()));
 		Gdx.input.setInputProcessor(testStage);
 		testStage.init();
 		testStage.setScreen(this);
+		Log.game.debug("width={}, height={}", Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 
 		super.init();
 	}
@@ -49,7 +45,7 @@ public class TestScreen extends BaseScreen {
 
 	@Override
 	public void resize(int width, int height) {
-		testStage.getViewport().update(width, height);
+		testStage.getViewport().update(width, height, true);
 		super.resize(width, height);
 	}
 }

@@ -27,6 +27,8 @@ public class ResourceManager {
 	public static TextureRegion AlphaMask;
 	public static TextureRegion White;
 
+	public static TextureRegion IntroBackground;
+
 	// ======字体
 	public static BitmapFont DefaultFont;
 
@@ -48,6 +50,9 @@ public class ResourceManager {
 		ZeroAlphaTexture = newColorTexture(Color.CLEAR);
 		AlphaMask = newColorTexture(new Color(0, 0, 0, 0.95f));
 		White = newColorTexture(Color.WHITE);
+
+		IntroBackground = new TextureRegion(new Texture(Gdx.files.internal("image/background.jpg")));
+
 		// ======字体
 		DefaultFont = new BitmapFont(Gdx.files.internal("font/sarasa/sarasa.fnt"), false);
 		Log.game.info("resource loading complete");
