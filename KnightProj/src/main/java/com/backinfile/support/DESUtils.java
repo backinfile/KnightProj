@@ -176,7 +176,7 @@ public class DESUtils {
 
 	public static void main(String[] args) {
 		String password = "12345678";
-		String loc = "127.0.0.1:65535";
+		String loc = "1.23.5.156";
 		String encode = encrypt(password, loc);
 		String uncode = decrypt(password, encode);
 		System.out.println(encode);

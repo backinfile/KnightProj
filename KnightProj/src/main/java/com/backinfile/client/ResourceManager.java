@@ -10,6 +10,7 @@ import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Pixmap.Format;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 public class ResourceManager {
@@ -39,6 +40,8 @@ public class ResourceManager {
 	public static void init() {
 		Log.game.info("start loading resource...");
 
+		SpriteBatch batch = new SpriteBatch();
+
 		// ========图片
 		Chap1Heros = new GridTexture("image/card/chap1/hero.png", 7, 2);
 		CardBorder = new TextureRegion(new Texture(Gdx.files.internal("image/card/tools/border.png")));
@@ -52,6 +55,7 @@ public class ResourceManager {
 		White = newColorTexture(Color.WHITE);
 
 		IntroBackground = new TextureRegion(new Texture(Gdx.files.internal("image/background.jpg")));
+		IntroBackground.flip(true, false);
 
 		// ======字体
 		DefaultFont = new BitmapFont(Gdx.files.internal("font/sarasa/sarasa.fnt"), false);

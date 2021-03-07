@@ -6,8 +6,8 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.Disposable;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
-public abstract class BaseStage extends Stage{
-	private boolean active;
+public abstract class BaseStage extends Stage {
+	private boolean active = true;
 	private BaseScreen screen;
 
 	public BaseStage() {

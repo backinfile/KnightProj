@@ -1,6 +1,7 @@
 package com.backinfile.seam;
 
 import com.backinfile.client.ResourceManager;
+import com.backinfile.client.screen.GameScreen;
 import com.backinfile.client.screen.TestScreen;
 import com.backinfile.core.GameMessage;
 import com.backinfile.core.Log;
@@ -21,7 +22,11 @@ public class ClientStartup extends Game {
 
 		TestScreen testScreen = new TestScreen();
 		testScreen.init();
-		setScreen(testScreen);
+
+		GameScreen gameScreen = new GameScreen();
+		gameScreen.init();
+
+		setScreen(gameScreen);
 	}
 
 	@Override

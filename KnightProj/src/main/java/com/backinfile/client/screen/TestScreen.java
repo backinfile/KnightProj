@@ -4,6 +4,7 @@ import com.backinfile.client.stage.TestStage;
 import com.backinfile.core.Log;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
+import com.badlogic.gdx.utils.viewport.FitViewport;
 
 public class TestScreen extends BaseScreen {
 
@@ -13,7 +14,7 @@ public class TestScreen extends BaseScreen {
 	@Override
 	public void init() {
 
-		testStage = new TestStage(new ExtendViewport(Gdx.graphics.getWidth(), Gdx.graphics.getHeight()));
+		testStage = new TestStage(new FitViewport(Gdx.graphics.getWidth(), Gdx.graphics.getHeight()));
 		Gdx.input.setInputProcessor(testStage);
 		testStage.init();
 		testStage.setScreen(this);

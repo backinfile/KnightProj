@@ -1,17 +1,22 @@
 package com.backinfile.client.stage;
 
 import com.backinfile.client.ResourceManager;
+import com.backinfile.client.actor.LineButton;
 import com.backinfile.core.Log;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
+import com.badlogic.gdx.scenes.scene2d.ui.Dialog;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
+import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
+import com.badlogic.gdx.scenes.scene2d.ui.Window.WindowStyle;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
+import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.Scaling;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
@@ -46,7 +51,10 @@ public class TestStage extends BaseStage {
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
 				Log.test.info("click test button");
-				getScreen().confirm(ResourceManager.KeywordStringContainer.get("attack").DESCRIPTION);
+//				getScreen().confirm(ResourceManager.KeywordStringContainer.get("attack").DESCRIPTION);
+
+				WindowStyle windowStyle = new WindowStyle();
+				windowStyle.titleFont = ResourceManager.DefaultFont;
 			}
 		});
 

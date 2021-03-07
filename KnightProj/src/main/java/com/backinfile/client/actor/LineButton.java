@@ -1,6 +1,7 @@
 package com.backinfile.client.actor;
 
 import com.backinfile.client.ResourceManager;
+import com.backinfile.core.Log;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
@@ -9,7 +10,7 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
-import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
+import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
 public class LineButton extends TextButton {
 
@@ -26,12 +27,23 @@ public class LineButton extends TextButton {
 		public void exit(InputEvent event, float x, float y, int pointer, Actor toActor) {
 			hover = false;
 		}
+	}
+
+	private class LineButtonClickListener extends ClickListener {
+
+		@Override
+		public void clicked(InputEvent event, float x, float y) {
+			if (getDebug()) {
+				Log.client.debug("click LineButton(\"{}\")", getLabel().getText());
+			}
+		}
 
 	}
 
 	public LineButton(String text) {
 		super(text, new TextButtonStyle(null, null, null, ResourceManager.DefaultFont));
 		addListener(new LineButtonEventListener());
+		addListener(new LineButtonClickListener());
 
 		shapeRenderer = new ShapeRenderer();
 	}

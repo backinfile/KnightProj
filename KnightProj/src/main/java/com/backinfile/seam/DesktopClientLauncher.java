@@ -1,6 +1,7 @@
 package com.backinfile.seam;
 
 import com.backinfile.core.Const;
+import com.badlogic.gdx.Graphics.DisplayMode;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 

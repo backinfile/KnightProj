@@ -5,6 +5,7 @@ import java.util.function.Consumer;
 import com.backinfile.client.ResourceManager;
 import com.backinfile.client.actor.LineButton;
 import com.backinfile.client.screen.BaseScreen;
+import com.backinfile.support.Utils2;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.Color;
@@ -23,11 +24,9 @@ import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.Align;
 
 public class ConfirmStage extends BaseStage {
-	private BaseScreen baseScreen;
 	private InputProcessor oldInputProcessor;
 	private Label label;
 	private LineButton confirm;
-	private Image alphaMask;
 	private Table table;
 	private Consumer<BaseScreen> callback = null;
 
@@ -37,7 +36,7 @@ public class ConfirmStage extends BaseStage {
 			hide();
 			Gdx.input.setInputProcessor(oldInputProcessor);
 			if (callback != null) {
-				callback.accept(baseScreen);
+				callback.accept(getScreen());
 			}
 		}
 	}
@@ -50,8 +49,6 @@ public class ConfirmStage extends BaseStage {
 		confirm = new LineButton("确认");
 		confirm.getLabel().setFontScale(0.8f);
 
-		alphaMask = new Image();
-
 		table = new Table();
 		table.setBackground(new TextureRegionDrawable(ResourceManager.AlphaMask));
 		table.setFillParent(true);
@@ -62,10 +59,12 @@ public class ConfirmStage extends BaseStage {
 		addActor(table);
 
 		confirm.addListener(new ConfirmStageClickListener());
+
+		setActive(false);
 	}
 
-	public void show(BaseScreen screen, String text, Consumer<BaseScreen> callback) {
-		this.baseScreen = screen;
+	public void show(BaseScreen screen, String text, String buttonText, Consumer<BaseScreen> callback) {
+		this.setScreen(screen);
 
 		oldInputProcessor = Gdx.input.getInputProcessor();
 		Gdx.input.setInputProcessor(this);
@@ -73,6 +72,11 @@ public class ConfirmStage extends BaseStage {
 		table.setVisible(true);
 
 		label.setText(text);
+		if (Utils2.isNullOrEmpty(buttonText)) {
+			confirm.setText("确认");
+		} else {
+			confirm.setText(buttonText);
+		}
 
 		this.callback = callback;
 

@@ -27,12 +27,12 @@ public abstract class BaseScreen extends ScreenAdapter {
 		}
 	}
 
-	public void confirm(String text, Consumer<BaseScreen> callback) {
-		confirmStage.show(this, text, callback);
+	public void confirm(String text, String buttonText, Consumer<BaseScreen> callback) {
+		confirmStage.show(this, text,buttonText, callback);
 	}
 
 	public void confirm(String text) {
-		confirmStage.show(this, text, null);
+		confirmStage.show(this, text, null, null);
 	}
 
 	@Override
