@@ -51,7 +51,7 @@ public class ResourceManager {
 		DefaultButtonUp = newColorTexture(Color.DARK_GRAY);
 		DefaultButtonDown = newColorTexture(Color.LIGHT_GRAY);
 		ZeroAlphaTexture = newColorTexture(Color.CLEAR);
-		AlphaMask = newColorTexture(new Color(0, 0, 0, 0.95f));
+		AlphaMask = newColorTexture(new Color(1, 1, 1, 0.2f));
 		White = newColorTexture(Color.WHITE);
 
 		IntroBackground = new TextureRegion(new Texture(Gdx.files.internal("image/background.jpg")));

@@ -41,11 +41,17 @@ public class LineButton extends TextButton {
 	}
 
 	public LineButton(String text) {
+		this(text, 1f);
+	}
+
+	public LineButton(String text, float fontScale) {
 		super(text, new TextButtonStyle(null, null, null, ResourceManager.DefaultFont));
 		addListener(new LineButtonEventListener());
 		addListener(new LineButtonClickListener());
 
 		shapeRenderer = new ShapeRenderer();
+
+		getLabel().setFontScale(fontScale);
 	}
 
 	@Override
