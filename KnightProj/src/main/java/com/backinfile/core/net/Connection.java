@@ -14,10 +14,12 @@ import com.backinfile.support.Utils2;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.net.Socket;
 
+import io.netty.channel.Channel;
+
 public class Connection implements Delayed {
 	public static final String TAG = Connection.class.getSimpleName();
 
-	private Socket socket;
+	private Channel channel;
 	private ConcurrentLinkedQueue<GameMessage> sendList = new ConcurrentLinkedQueue<GameMessage>();
 	private ConcurrentLinkedQueue<GameMessage> reciveList = new ConcurrentLinkedQueue<GameMessage>();
 	private InputStream inputStream;
@@ -30,10 +32,8 @@ public class Connection implements Delayed {
 
 	private final byte[] readBytes = new byte[1024];
 
-	public Connection(long id, Socket socket) {
-		this.socket = socket;
-		this.inputStream = socket.getInputStream();
-		this.outputStream = socket.getOutputStream();
+	public Connection(long id, Channel channel) {
+		this.channel = channel;
 		this.id = id;
 	}
 
@@ -57,7 +57,7 @@ public class Connection implements Delayed {
 		time = Time2.getCurrentTimestamp();
 		Log.net.debug("pulse");
 
-		if (!socket.isConnected()) {
+		if (!channel.isActive()) {
 			return;
 		}
 		try {

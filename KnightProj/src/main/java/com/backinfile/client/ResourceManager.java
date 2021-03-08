@@ -12,6 +12,9 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
+import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.FreeTypeBitmapFontData;
+import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.FreeTypeFontParameter;
 
 public class ResourceManager {
 
@@ -31,6 +34,9 @@ public class ResourceManager {
 	public static TextureRegion IntroBackground;
 
 	// ======字体
+	public static BitmapFont DefaultFontSmallSamll;
+	public static BitmapFont DefaultFontSmall;
+	public static BitmapFont DefaultFontLarge;
 	public static BitmapFont DefaultFont;
 
 	// ======文本
@@ -42,7 +48,16 @@ public class ResourceManager {
 
 		SpriteBatch batch = new SpriteBatch();
 
-		// ========图片
+		initImage();
+
+		initFont();
+
+		initText();
+
+		Log.game.info("resource loading complete");
+	}
+
+	private static void initImage() {
 		Chap1Heros = new GridTexture("image/card/chap1/hero.png", 7, 2);
 		CardBorder = new TextureRegion(new Texture(Gdx.files.internal("image/card/tools/border.png")));
 		CardFrontStore = new TextureRegion(new Texture(Gdx.files.internal("image/card/tools/store.png")));
@@ -56,12 +71,23 @@ public class ResourceManager {
 
 		IntroBackground = new TextureRegion(new Texture(Gdx.files.internal("image/background.jpg")));
 		IntroBackground.flip(true, false);
+	}
 
-		// ======字体
-		DefaultFont = new BitmapFont(Gdx.files.internal("font/sarasa/sarasa.fnt"), false);
-		Log.game.info("resource loading complete");
+	private static void initFont() {
+		FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("font/msyh.ttc"));
+		FreeTypeFontParameter parameter = new FreeTypeFontParameter();
+		parameter.size = 12;
+		DefaultFontSmallSamll = generator.generateFont(parameter);
+		parameter.size = 18;
+		DefaultFontSmall = generator.generateFont(parameter);
+		parameter.size = 24;
+		DefaultFont = generator.generateFont(parameter);
+		parameter.size = 32;
+		DefaultFontLarge = generator.generateFont(parameter);
+		generator.dispose();
+	}
 
-		// ======文本
+	private static void initText() {
 		JsonReader keywordsReader = new JsonReader(Gdx.files.internal("json/keywords.json"));
 		KeywordStringContainer = new StringContainer<KeywordStrings>(keywordsReader.parseAsKeywordStrings(),
 				KeywordStrings.getDefaultKeywordString());
