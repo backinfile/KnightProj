@@ -46,8 +46,6 @@ public class ResourceManager {
 	public static void init() {
 		Log.game.info("start loading resource...");
 
-		SpriteBatch batch = new SpriteBatch();
-
 		initImage();
 
 		initFont();

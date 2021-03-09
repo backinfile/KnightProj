@@ -1,22 +1,20 @@
-package com.backinfile.seam;
+package com.backinfile.core.net;
+
+import java.io.IOException;
+import java.net.InetSocketAddress;
+import java.net.Socket;
 
 import com.backinfile.core.Const;
 import com.backinfile.core.Log;
-import com.backinfile.core.net.Connection;
-import com.backinfile.support.DESUtils;
 import com.backinfile.support.Utils2;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Net.Protocol;
-import com.badlogic.gdx.net.Socket;
-import com.badlogic.gdx.net.SocketHints;
 
 public class GameClient {
-	private volatile String host;
+	private volatile String remoteIp;
 	private volatile int port;
 
 	private Thread connectThread;
 	private Socket socket;
-	private Connection connection;
+	private SocketConnection connection;
 
 	private volatile boolean justConnected = false;
 	private volatile boolean isAlive = false; // 设置为false进行开始关闭过程
@@ -26,26 +24,8 @@ public class GameClient {
 	}
 
 	public void setAddr(String host, int port) {
-		this.host = host;
+		this.remoteIp = host;
 		this.port = port;
-	}
-
-	public boolean setAddr(String addrCode) {
-		String decodeStr = DESUtils.decrypt(Const.ADDRCODE_PASSWORD, addrCode);
-		if (Utils2.isNullOrEmpty(decodeStr)) {
-			return false;
-		}
-		String[] split = decodeStr.split(":");
-		if (split.length != 2) {
-			return false;
-		}
-		try {
-			this.port = Integer.valueOf(split[1]);
-			this.host = split[0];
-		} catch (NumberFormatException e) {
-			return false;
-		}
-		return true;
 	}
 
 	public void start() {
@@ -59,12 +39,18 @@ public class GameClient {
 	}
 
 	public void tryConnect() {
-		SocketHints hints = new SocketHints();
-		hints.socketTimeout = Const.CLIENT_CONNECT_TIME;
 		int reconnectTimes = 0;
 		while (reconnectTimes++ < Const.CLIENT_RECONNECT_TIMES) {
 			Log.net.info("connecting server..(the {}th times)", reconnectTimes);
-			socket = Gdx.net.newClientSocket(Protocol.TCP, host, port, hints);
+			try {
+				if (socket == null) {
+					socket = new Socket();
+				}
+				socket.connect(new InetSocketAddress(remoteIp, port), 1000);
+			} catch (IOException e) {
+				Log.client.error("error in connect server: {}", e.getMessage());
+				socket = null;
+			}
 			if (socket != null && socket.isConnected()) {
 				justConnected = true;
 				Log.net.info("connect server success");
@@ -89,7 +75,11 @@ public class GameClient {
 				connectThread = null;
 			}
 			if (socket != null) {
-				socket.dispose();
+				try {
+					socket.close();
+				} catch (IOException e) {
+					Log.client.error("error in close socket", e);
+				}
 				socket = null;
 			}
 			closed = true;
@@ -98,8 +88,8 @@ public class GameClient {
 
 		if (justConnected) {
 			justConnected = false;
-			connection = new Connection(-1, socket);
-			Log.game.info("connect server success addr:{}", socket.getRemoteAddress());
+			connection = new SocketConnection(-1, socket);
+			Log.game.info("connect server success addr:{}", socket.getRemoteSocketAddress());
 		}
 
 		if (connection != null) {
@@ -111,7 +101,7 @@ public class GameClient {
 		}
 	}
 
-	public Connection getConnection() {
+	public SocketConnection getConnection() {
 		return connection;
 	}
 
@@ -119,4 +109,14 @@ public class GameClient {
 		isAlive = false;
 	}
 
+	public static void main(String[] args) {
+		GameClient gameClient = new GameClient();
+		gameClient.setAddr("", Const.GAMESERVER_PORT);
+		gameClient.start();
+		while (gameClient.isAlive()) {
+			gameClient.pulse();
+			Utils2.sleep(1000);
+		}
+		gameClient.close();
+	}
 }
