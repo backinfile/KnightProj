@@ -22,8 +22,8 @@ public class Server {
 			ServerBootstrap b = new ServerBootstrap();
 			// 第三步，配置各组件
 			b.group(bossGroup, workerGroup).channel(NioServerSocketChannel.class)
-					.option(ChannelOption.TCP_NODELAY, true).localAddress(new InetSocketAddress(port))
-					.childHandler(new ChannelInitializer<SocketChannel>() {
+					.childOption(ChannelOption.TCP_NODELAY, true).childOption(ChannelOption.SO_KEEPALIVE, true)
+					.localAddress(new InetSocketAddress(port)).childHandler(new ChannelInitializer<SocketChannel>() {
 						@Override
 						protected void initChannel(SocketChannel socketChannel) throws Exception {
 							ChannelPipeline pipeline = socketChannel.pipeline();

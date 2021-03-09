@@ -5,7 +5,9 @@ import java.net.InetSocketAddress;
 import java.net.Socket;
 
 import com.backinfile.core.Const;
+import com.backinfile.core.GameMessage;
 import com.backinfile.core.Log;
+import com.backinfile.gen.pb.Msg.SCGetRoomInfo;
 import com.backinfile.support.Utils2;
 
 public class GameClient {
@@ -109,12 +111,17 @@ public class GameClient {
 		isAlive = false;
 	}
 
+	private static int count = 0;
+
 	public static void main(String[] args) {
 		GameClient gameClient = new GameClient();
 		gameClient.setAddr("", Const.GAMESERVER_PORT);
 		gameClient.start();
 		while (gameClient.isAlive()) {
 			gameClient.pulse();
+			if (count++ == 5) {
+				gameClient.connection.sendGameMessage(new GameMessage(SCGetRoomInfo.newBuilder().build()));
+			}
 			Utils2.sleep(1000);
 		}
 		gameClient.close();

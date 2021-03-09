@@ -52,7 +52,7 @@ public class ChannelConnection implements Delayed, Connection {
 
 	public void pulse() {
 		time = Time2.getCurrentTimestamp();
-		Log.net.debug("pulse");
+//		Log.net.debug("pulse");
 
 		if (!isAlive())
 			return;
@@ -115,6 +115,7 @@ public class ChannelConnection implements Delayed, Connection {
 	}
 
 	public void close() {
+		channel.close();
 	}
 
 }

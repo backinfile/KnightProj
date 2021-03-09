@@ -65,7 +65,7 @@ public class SocketConnection implements Connection {
 
 	public void pulse() {
 		time = Time2.getCurrentTimestamp();
-		Log.net.debug("pulse");
+//		Log.net.debug("pulse");
 
 		if (!socket.isConnected()) {
 			return;

@@ -15,4 +15,6 @@ public interface Connection extends Delayed {
 
 	public void sendGameMessage(GameMessage gameMessage);
 
+	public void close();
+
 }

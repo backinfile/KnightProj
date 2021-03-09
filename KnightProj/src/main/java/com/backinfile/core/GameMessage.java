@@ -44,7 +44,7 @@ public class GameMessage {
 	public byte[] getBytes() {
 		byte[] byteArray = message.toByteArray();
 		length = byteArray.length + 8;
-		Utils2.int2bytes(byteArray.length + 8, contentBytes, 0);
+		Utils2.int2bytes(length, contentBytes, 0);
 		Utils2.int2bytes(message.getClass().getName().hashCode(), contentBytes, 4);
 		System.arraycopy(byteArray, 0, contentBytes, 8, byteArray.length);
 		return contentBytes;

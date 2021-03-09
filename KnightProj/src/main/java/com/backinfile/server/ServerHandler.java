@@ -13,8 +13,8 @@ import io.netty.channel.ChannelInboundHandlerAdapter;
 
 public class ServerHandler extends ChannelInboundHandlerAdapter {
 	private ChannelConnection connection;
-	private AtomicLong idAllot = new AtomicLong(0);
-	private AtomicLong connectionCount = new AtomicLong(0);
+	private static AtomicLong idAllot = new AtomicLong(0);
+	private static AtomicLong connectionCount = new AtomicLong(0);
 
 	@Override
 	public void channelActive(ChannelHandlerContext ctx) throws Exception {
