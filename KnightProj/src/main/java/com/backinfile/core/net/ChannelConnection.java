@@ -76,8 +76,12 @@ public class ChannelConnection implements Delayed, Connection {
 				break;
 			GameMessage gameMessage = GameMessage.buildGameMessage(data, 0, data.length);
 			if (gameMessage != null) {
-				reciveList.add(gameMessage);
-				Log.net.info("Connection {} got {}", this.toString(), gameMessage.toString());
+				if (GameServer.Instance != null) {
+					GameServer.Instance.onReceiveGameMessage(getId(), gameMessage);
+				} else {
+					reciveList.add(gameMessage);
+					Log.net.info("Connection {} got {}", this.toString(), gameMessage.toString());
+				}
 			}
 		}
 	}

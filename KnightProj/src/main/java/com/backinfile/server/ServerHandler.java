@@ -31,7 +31,6 @@ public class ServerHandler extends ChannelInboundHandlerAdapter {
 
 	@Override
 	public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-		super.channelRead(ctx, msg);
 		connection.addInput((byte[]) msg);
 	}
 
@@ -45,7 +44,6 @@ public class ServerHandler extends ChannelInboundHandlerAdapter {
 
 	@Override
 	public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
-		super.exceptionCaught(ctx, cause);
 		Log.server.error("exceptionCaught id=" + connection.getId() + " {}", cause.getMessage());
 	}
 }

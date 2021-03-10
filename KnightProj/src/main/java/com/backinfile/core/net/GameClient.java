@@ -20,7 +20,7 @@ public class GameClient {
 
 	private volatile boolean justConnected = false;
 	private volatile boolean isAlive = false; // 设置为false进行开始关闭过程
-	private boolean closed = true; // 真正关闭
+	private boolean closed = false; // 真正关闭
 
 	public GameClient() {
 	}
@@ -49,6 +49,8 @@ public class GameClient {
 					socket = new Socket();
 				}
 				socket.connect(new InetSocketAddress(remoteIp, port), 1000);
+				socket.setKeepAlive(true);
+				
 			} catch (IOException e) {
 				Log.client.error("error in connect server: {}", e.getMessage());
 				socket = null;
@@ -67,6 +69,11 @@ public class GameClient {
 	}
 
 	public void pulse() {
+		// 检查当前socket是否已经关闭
+		if (!closed && socket != null && socket.isClosed()) {
+			isAlive = false;
+		}
+		
 		if (!isAlive && !closed) {
 			if (connectThread != null) {
 				try {
@@ -85,6 +92,7 @@ public class GameClient {
 				socket = null;
 			}
 			closed = true;
+			Log.client.error("GameClient closed");
 			return;
 		}
 
@@ -114,6 +122,7 @@ public class GameClient {
 	private static int count = 0;
 
 	public static void main(String[] args) {
+		GameMessage.collectAllMessage();
 		GameClient gameClient = new GameClient();
 		gameClient.setAddr("", Const.GAMESERVER_PORT);
 		gameClient.start();

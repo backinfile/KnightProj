@@ -1,8 +1,10 @@
 package com.backinfile.core.net;
 
 import com.backinfile.core.Const;
+import com.backinfile.core.GameMessage;
 import com.backinfile.core.Log;
 import com.backinfile.server.Server;
+import com.backinfile.support.Utils2;
 
 public class GameServer {
 	public static GameServer Instance;
@@ -68,8 +70,36 @@ public class GameServer {
 		return (ChannelConnection) connectionMaintainer.getConnection(id);
 	}
 
+	/**
+	 * 发送消息到客户端
+	 * 
+	 * @param id
+	 * @param gameMessage
+	 */
+	public void sendGameMessage(long id, GameMessage gameMessage) {
+		Connection connection = connectionMaintainer.getConnection(id);
+		if (connection != null) {
+			connection.sendGameMessage(gameMessage);
+		} else {
+			Log.server.debug("connection disconnect, message miss id:{} msg:{}", id, gameMessage.toString());
+		}
+	}
+
+	/**
+	 * 接受到客户端的消息
+	 */
+	public void onReceiveGameMessage(long id, GameMessage gameMessage) {
+		// TODO
+		Log.net.info("onReceiveGameMessage {} got {}", id, gameMessage.toString());
+	}
+
 	public static void main(String[] args) {
+		GameMessage.collectAllMessage();
 		GameServer gameServer = new GameServer();
 		gameServer.start();
+		while (gameServer.isAlive()) {
+			gameServer.pulse();
+			Utils2.sleep(1000);
+		}
 	}
 }

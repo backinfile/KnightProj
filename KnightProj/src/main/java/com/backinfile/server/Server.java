@@ -29,12 +29,18 @@ public class Server {
 							ChannelPipeline pipeline = socketChannel.pipeline();
 							pipeline.addLast(new Decoder(), new Encoder(), new ServerHandler());
 						}
+
+						@Override
+						public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
+							super.exceptionCaught(ctx, cause);
+							Log.server.error("error", cause);
+						}
 					});
 
 			Log.server.debug("start listen:{}", port);
 			// 第四步，开启监听
 			Channel channel = b.bind().sync().channel();
-			Log.server.debug("listened:{}", port);
+			Log.server.info("listened: {}", port);
 //			channel.closeFuture().sync();
 			channel.closeFuture().addListener(new ChannelFutureListener() {
 				@Override
