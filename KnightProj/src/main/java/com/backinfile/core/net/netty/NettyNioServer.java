@@ -1,4 +1,4 @@
-package com.backinfile.server;
+package com.backinfile.core.net.netty;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.buffer.ByteBuf;

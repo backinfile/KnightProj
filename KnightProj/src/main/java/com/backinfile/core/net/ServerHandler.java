@@ -1,11 +1,9 @@
-package com.backinfile.server;
+package com.backinfile.core.net;
 
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 
 import com.backinfile.core.Log;
-import com.backinfile.core.net.ChannelConnection;
-import com.backinfile.core.net.GameServer;
 
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;

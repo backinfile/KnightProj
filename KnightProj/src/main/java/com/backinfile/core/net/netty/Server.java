@@ -1,4 +1,4 @@
-package com.backinfile.server;
+package com.backinfile.core.net.netty;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.*;
@@ -8,7 +8,9 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 
 import java.net.InetSocketAddress;
 
+import com.backinfile.core.Const;
 import com.backinfile.core.Log;
+import com.backinfile.core.net.ServerHandler;
 
 public class Server {
 
@@ -23,23 +25,18 @@ public class Server {
 			// 第三步，配置各组件
 			b.group(bossGroup, workerGroup).channel(NioServerSocketChannel.class)
 					.childOption(ChannelOption.TCP_NODELAY, true).childOption(ChannelOption.SO_KEEPALIVE, true)
-					.localAddress(new InetSocketAddress(port)).childHandler(new ChannelInitializer<SocketChannel>() {
+					.childHandler(new ChannelInitializer<SocketChannel>() {
 						@Override
 						protected void initChannel(SocketChannel socketChannel) throws Exception {
 							ChannelPipeline pipeline = socketChannel.pipeline();
 							pipeline.addLast(new Decoder(), new Encoder(), new ServerHandler());
-						}
-
-						@Override
-						public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
-							super.exceptionCaught(ctx, cause);
-							Log.server.error("error", cause);
+							pipeline.addLast(new ExceptionHandler());
 						}
 					});
 
-			Log.server.debug("start listen:{}", port);
+			Log.server.info("start listen:{}", port);
 			// 第四步，开启监听
-			Channel channel = b.bind().sync().channel();
+			Channel channel = b.bind(port).sync().channel();
 			Log.server.info("listened: {}", port);
 //			channel.closeFuture().sync();
 			channel.closeFuture().addListener(new ChannelFutureListener() {

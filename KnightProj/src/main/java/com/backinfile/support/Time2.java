@@ -1,11 +1,11 @@
 package com.backinfile.support;
 
 public class Time2 {
-	public static final long MILLI = 1L;
-	public static final long SECOND = 1000L * MILLI;
-	public static final long MINUTE = 60L * SECOND;
-	public static final long HOUR = 60L * MINUTE;
-	public static final long Day = 24L * HOUR;
+	public static final int MILLI = 1;
+	public static final int SECOND = 1000 * MILLI;
+	public static final int MINUTE = 60 * SECOND;
+	public static final int HOUR = 60 * MINUTE;
+	public static final int Day = 24 * HOUR;
 
 	public static long getCurrentTimestamp() {
 		return System.currentTimeMillis();

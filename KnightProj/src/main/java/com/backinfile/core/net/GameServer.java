@@ -3,7 +3,7 @@ package com.backinfile.core.net;
 import com.backinfile.core.Const;
 import com.backinfile.core.GameMessage;
 import com.backinfile.core.Log;
-import com.backinfile.server.Server;
+import com.backinfile.core.net.netty.Server;
 import com.backinfile.support.Utils2;
 
 public class GameServer {
