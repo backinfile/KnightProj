@@ -1,4 +1,4 @@
-package com.backinfile.client.game;
+package com.backinfile.server.board;
 
 public class ConstGame {
 	public static final int PlanCardPos = 4;

@@ -1,4 +1,4 @@
-package com.backinfile.client.game;
+package com.backinfile.server.board;
 
 public abstract class ActionCard extends Card {
 

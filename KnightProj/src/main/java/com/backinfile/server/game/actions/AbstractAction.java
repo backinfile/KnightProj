@@ -1,6 +1,6 @@
-package com.backinfile.client.game.actions;
+package com.backinfile.server.game.actions;
 
-import com.backinfile.client.game.Player;
+import com.backinfile.server.board.Player;
 
 public abstract class AbstractAction {
 	// 标记Action结束

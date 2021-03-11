@@ -1,8 +1,8 @@
-package com.backinfile.client.game;
+package com.backinfile.server.board;
 
 import java.util.LinkedList;
 
-import com.backinfile.client.game.actions.AbstractAction;
+import com.backinfile.server.game.actions.AbstractAction;
 
 
 public class ActionManager {

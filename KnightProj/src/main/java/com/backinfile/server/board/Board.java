@@ -1,8 +1,8 @@
-package com.backinfile.client.game;
+package com.backinfile.server.board;
 
 import java.util.Random;
 
-import com.backinfile.client.game.actions.InTurnAction;
+import com.backinfile.server.game.actions.InTurnAction;
 import com.badlogic.gdx.net.Socket;
 
 public class Board {

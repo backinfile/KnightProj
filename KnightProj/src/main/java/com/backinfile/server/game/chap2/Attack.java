@@ -1,9 +1,9 @@
-package com.backinfile.client.game.chap2;
+package com.backinfile.server.game.chap2;
 
-import com.backinfile.client.game.ActionCard;
-import com.backinfile.client.game.Board;
-import com.backinfile.client.game.Player;
-import com.backinfile.client.game.actions.AttackCardAttackAction;
+import com.backinfile.server.board.ActionCard;
+import com.backinfile.server.board.Board;
+import com.backinfile.server.board.Player;
+import com.backinfile.server.game.actions.AttackCardAttackAction;
 
 public class Attack extends ActionCard {
 

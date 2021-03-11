@@ -1,4 +1,4 @@
-package com.backinfile.client.game;
+package com.backinfile.server.board;
 
 public class GameException extends RuntimeException {
 	private static final long serialVersionUID = 1L;

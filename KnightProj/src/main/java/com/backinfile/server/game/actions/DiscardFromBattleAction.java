@@ -1,10 +1,10 @@
-package com.backinfile.client.game.actions;
+package com.backinfile.server.game.actions;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.backinfile.client.game.Card;
-import com.backinfile.client.game.Player;
+import com.backinfile.server.board.Card;
+import com.backinfile.server.board.Player;
 
 public class DiscardFromBattleAction extends AbstractAction {
 	public int pos;

@@ -1,7 +1,7 @@
-package com.backinfile.client.game.actions;
+package com.backinfile.server.game.actions;
 
-import com.backinfile.client.game.Card;
-import com.backinfile.client.game.Player;
+import com.backinfile.server.board.Card;
+import com.backinfile.server.board.Player;
 
 public class SealOpponentAction extends AbstractAction {
 	public int pos;

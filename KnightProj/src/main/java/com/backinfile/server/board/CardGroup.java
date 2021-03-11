@@ -1,4 +1,4 @@
-package com.backinfile.client.game;
+package com.backinfile.server.board;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

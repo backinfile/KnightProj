@@ -1,4 +1,4 @@
-package com.backinfile.client.game;
+package com.backinfile.server.board;
 
 import java.util.HashSet;
 import java.util.Set;
