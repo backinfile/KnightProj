@@ -45,7 +45,7 @@ public class GameMessage {
 		byte[] byteArray = message.toByteArray();
 		length = byteArray.length + 8;
 		Utils2.int2bytes(length, contentBytes, 0);
-		Utils2.int2bytes(message.getClass().getName().hashCode(), contentBytes, 4);
+		Utils2.int2bytes(getMessageHash(message), contentBytes, 4);
 		System.arraycopy(byteArray, 0, contentBytes, 8, byteArray.length);
 		return contentBytes;
 	}
@@ -75,6 +75,14 @@ public class GameMessage {
 		return null;
 	}
 
+	public static int getMessageHash(Class<?> clazz) {
+		return clazz.getName().hashCode();
+	}
+
+	public static int getMessageHash(Message message) {
+		return message.getClass().getName().hashCode();
+	}
+
 	@Override
 	public String toString() {
 		if (message == null) {
@@ -94,7 +102,7 @@ public class GameMessage {
 			try {
 				Method method = clazz.getDeclaredMethod("newBuilder");
 				Object value = method.invoke(null);
-				map.put(clazz.getName().hashCode(), (Message.Builder) value);
+				map.put(getMessageHash(clazz), (Message.Builder) value);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

@@ -14,6 +14,8 @@ public class ClientPref {
 	public static ClientPref Instance;
 
 	public String name = "";
+	public String heroSelectChap1 = "";
+	public String heroSelectChap2 = "";
 
 	private ClientPref() {
 	}

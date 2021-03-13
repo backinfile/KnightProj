@@ -4,7 +4,7 @@ import com.backinfile.client.ResourceManager;
 import com.backinfile.core.Const;
 import com.backinfile.core.GameMessage;
 import com.backinfile.core.ClientPref;
-import com.backinfile.core.event.RoomEvent;
+import com.backinfile.core.event.Event;
 import com.backinfile.support.Time2;
 import com.backinfile.support.Utils2;
 import com.badlogic.gdx.Graphics.DisplayMode;

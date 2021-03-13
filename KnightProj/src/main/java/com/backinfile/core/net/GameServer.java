@@ -3,7 +3,11 @@ package com.backinfile.core.net;
 import com.backinfile.core.Const;
 import com.backinfile.core.GameMessage;
 import com.backinfile.core.Log;
+import com.backinfile.core.event.Event;
+import com.backinfile.core.event.EventKey;
 import com.backinfile.core.net.netty.Server;
+import com.backinfile.gen.pb.Msg.CSConnect;
+import com.backinfile.support.PairParam;
 import com.backinfile.support.Utils2;
 
 public class GameServer {
@@ -38,6 +42,7 @@ public class GameServer {
 
 		isAlive = true;
 		closed = false;
+		Event.fireMessage(CSConnect.newBuilder().build(), new PairParam());
 	}
 
 	public void run() {
@@ -95,6 +100,7 @@ public class GameServer {
 
 	public static void main(String[] args) {
 		GameMessage.collectAllMessage();
+		Event.collectEventListener();
 		GameServer gameServer = new GameServer();
 		gameServer.start();
 		while (gameServer.isAlive()) {
