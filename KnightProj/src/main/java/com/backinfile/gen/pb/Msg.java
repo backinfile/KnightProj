@@ -164,6 +164,12 @@ public final class Msg {
      */
     com.google.protobuf.ByteString
         getNameBytes();
+
+    /**
+     * <code>int64 id = 2;</code>
+     * @return The id.
+     */
+    long getId();
   }
   /**
    * Protobuf type {@code DPlayer}
@@ -242,6 +248,17 @@ public final class Msg {
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
+    }
+
+    public static final int ID_FIELD_NUMBER = 2;
+    private long id_;
+    /**
+     * <code>int64 id = 2;</code>
+     * @return The id.
+     */
+    @java.lang.Override
+    public long getId() {
+      return id_;
     }
 
     public static com.backinfile.gen.pb.Msg.DPlayer parseFrom(
@@ -374,6 +391,8 @@ public final class Msg {
         super.clear();
         name_ = "";
 
+        id_ = 0L;
+
         return this;
       }
 
@@ -401,6 +420,7 @@ public final class Msg {
       public com.backinfile.gen.pb.Msg.DPlayer buildPartial() {
         com.backinfile.gen.pb.Msg.DPlayer result = new com.backinfile.gen.pb.Msg.DPlayer(this);
         result.name_ = name_;
+        result.id_ = id_;
         onBuilt();
         return result;
       }
@@ -513,6 +533,37 @@ public final class Msg {
         onChanged();
         return this;
       }
+
+      private long id_ ;
+      /**
+       * <code>int64 id = 2;</code>
+       * @return The id.
+       */
+      @java.lang.Override
+      public long getId() {
+        return id_;
+      }
+      /**
+       * <code>int64 id = 2;</code>
+       * @param value The id to set.
+       * @return This builder for chaining.
+       */
+      public Builder setId(long value) {
+        
+        id_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 id = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearId() {
+        
+        id_ = 0L;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -581,54 +632,66 @@ public final class Msg {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>.DPlayer sender = 1;</code>
+     * <code>int64 id = 1;</code>
+     * @return The id.
+     */
+    long getId();
+
+    /**
+     * <code>int64 time = 2;</code>
+     * @return The time.
+     */
+    long getTime();
+
+    /**
+     * <code>.DPlayer sender = 3;</code>
      * @return Whether the sender field is set.
      */
     boolean hasSender();
     /**
-     * <code>.DPlayer sender = 1;</code>
+     * <code>.DPlayer sender = 3;</code>
      * @return The sender.
      */
     com.backinfile.gen.pb.Msg.DPlayer getSender();
     /**
-     * <code>.DPlayer sender = 1;</code>
+     * <code>.DPlayer sender = 3;</code>
      */
     com.backinfile.gen.pb.Msg.DPlayerOrBuilder getSenderOrBuilder();
 
     /**
-     * <code>.DPlayer receiver = 2;</code>
+     * <code>.DPlayer receiver = 4;</code>
      * @return Whether the receiver field is set.
      */
     boolean hasReceiver();
     /**
-     * <code>.DPlayer receiver = 2;</code>
+     * <code>.DPlayer receiver = 4;</code>
      * @return The receiver.
      */
     com.backinfile.gen.pb.Msg.DPlayer getReceiver();
     /**
-     * <code>.DPlayer receiver = 2;</code>
+     * <code>.DPlayer receiver = 4;</code>
      */
     com.backinfile.gen.pb.Msg.DPlayerOrBuilder getReceiverOrBuilder();
 
     /**
-     * <code>string content = 3;</code>
+     * <code>string content = 5;</code>
      * @return The content.
      */
     java.lang.String getContent();
     /**
-     * <code>string content = 3;</code>
+     * <code>string content = 5;</code>
      * @return The bytes for content.
      */
     com.google.protobuf.ByteString
         getContentBytes();
 
     /**
-     * <code>.EChatType type = 4;</code>
+     * <code>.EChatType type = 6;</code>
      * @return The enum numeric value on the wire for type.
      */
     int getTypeValue();
     /**
-     * <code>.EChatType type = 4;</code>
+     * <code>.EChatType type = 6;</code>
      * @return The type.
      */
     com.backinfile.gen.pb.Msg.EChatType getType();
@@ -679,10 +742,32 @@ public final class Msg {
               com.backinfile.gen.pb.Msg.DChat.class, com.backinfile.gen.pb.Msg.DChat.Builder.class);
     }
 
-    public static final int SENDER_FIELD_NUMBER = 1;
+    public static final int ID_FIELD_NUMBER = 1;
+    private long id_;
+    /**
+     * <code>int64 id = 1;</code>
+     * @return The id.
+     */
+    @java.lang.Override
+    public long getId() {
+      return id_;
+    }
+
+    public static final int TIME_FIELD_NUMBER = 2;
+    private long time_;
+    /**
+     * <code>int64 time = 2;</code>
+     * @return The time.
+     */
+    @java.lang.Override
+    public long getTime() {
+      return time_;
+    }
+
+    public static final int SENDER_FIELD_NUMBER = 3;
     private com.backinfile.gen.pb.Msg.DPlayer sender_;
     /**
-     * <code>.DPlayer sender = 1;</code>
+     * <code>.DPlayer sender = 3;</code>
      * @return Whether the sender field is set.
      */
     @java.lang.Override
@@ -690,7 +775,7 @@ public final class Msg {
       return sender_ != null;
     }
     /**
-     * <code>.DPlayer sender = 1;</code>
+     * <code>.DPlayer sender = 3;</code>
      * @return The sender.
      */
     @java.lang.Override
@@ -698,17 +783,17 @@ public final class Msg {
       return sender_ == null ? com.backinfile.gen.pb.Msg.DPlayer.getDefaultInstance() : sender_;
     }
     /**
-     * <code>.DPlayer sender = 1;</code>
+     * <code>.DPlayer sender = 3;</code>
      */
     @java.lang.Override
     public com.backinfile.gen.pb.Msg.DPlayerOrBuilder getSenderOrBuilder() {
       return getSender();
     }
 
-    public static final int RECEIVER_FIELD_NUMBER = 2;
+    public static final int RECEIVER_FIELD_NUMBER = 4;
     private com.backinfile.gen.pb.Msg.DPlayer receiver_;
     /**
-     * <code>.DPlayer receiver = 2;</code>
+     * <code>.DPlayer receiver = 4;</code>
      * @return Whether the receiver field is set.
      */
     @java.lang.Override
@@ -716,7 +801,7 @@ public final class Msg {
       return receiver_ != null;
     }
     /**
-     * <code>.DPlayer receiver = 2;</code>
+     * <code>.DPlayer receiver = 4;</code>
      * @return The receiver.
      */
     @java.lang.Override
@@ -724,17 +809,17 @@ public final class Msg {
       return receiver_ == null ? com.backinfile.gen.pb.Msg.DPlayer.getDefaultInstance() : receiver_;
     }
     /**
-     * <code>.DPlayer receiver = 2;</code>
+     * <code>.DPlayer receiver = 4;</code>
      */
     @java.lang.Override
     public com.backinfile.gen.pb.Msg.DPlayerOrBuilder getReceiverOrBuilder() {
       return getReceiver();
     }
 
-    public static final int CONTENT_FIELD_NUMBER = 3;
+    public static final int CONTENT_FIELD_NUMBER = 5;
     private volatile java.lang.Object content_;
     /**
-     * <code>string content = 3;</code>
+     * <code>string content = 5;</code>
      * @return The content.
      */
     @java.lang.Override
@@ -751,7 +836,7 @@ public final class Msg {
       }
     }
     /**
-     * <code>string content = 3;</code>
+     * <code>string content = 5;</code>
      * @return The bytes for content.
      */
     @java.lang.Override
@@ -769,17 +854,17 @@ public final class Msg {
       }
     }
 
-    public static final int TYPE_FIELD_NUMBER = 4;
+    public static final int TYPE_FIELD_NUMBER = 6;
     private int type_;
     /**
-     * <code>.EChatType type = 4;</code>
+     * <code>.EChatType type = 6;</code>
      * @return The enum numeric value on the wire for type.
      */
     @java.lang.Override public int getTypeValue() {
       return type_;
     }
     /**
-     * <code>.EChatType type = 4;</code>
+     * <code>.EChatType type = 6;</code>
      * @return The type.
      */
     @java.lang.Override public com.backinfile.gen.pb.Msg.EChatType getType() {
@@ -920,6 +1005,10 @@ public final class Msg {
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        id_ = 0L;
+
+        time_ = 0L;
+
         if (senderBuilder_ == null) {
           sender_ = null;
         } else {
@@ -962,6 +1051,8 @@ public final class Msg {
       @java.lang.Override
       public com.backinfile.gen.pb.Msg.DChat buildPartial() {
         com.backinfile.gen.pb.Msg.DChat result = new com.backinfile.gen.pb.Msg.DChat(this);
+        result.id_ = id_;
+        result.time_ = time_;
         if (senderBuilder_ == null) {
           result.sender_ = sender_;
         } else {
@@ -1011,18 +1102,80 @@ public final class Msg {
         return super.addRepeatedField(field, value);
       }
 
+      private long id_ ;
+      /**
+       * <code>int64 id = 1;</code>
+       * @return The id.
+       */
+      @java.lang.Override
+      public long getId() {
+        return id_;
+      }
+      /**
+       * <code>int64 id = 1;</code>
+       * @param value The id to set.
+       * @return This builder for chaining.
+       */
+      public Builder setId(long value) {
+        
+        id_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 id = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearId() {
+        
+        id_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long time_ ;
+      /**
+       * <code>int64 time = 2;</code>
+       * @return The time.
+       */
+      @java.lang.Override
+      public long getTime() {
+        return time_;
+      }
+      /**
+       * <code>int64 time = 2;</code>
+       * @param value The time to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTime(long value) {
+        
+        time_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 time = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTime() {
+        
+        time_ = 0L;
+        onChanged();
+        return this;
+      }
+
       private com.backinfile.gen.pb.Msg.DPlayer sender_;
       private com.google.protobuf.SingleFieldBuilderV3<
           com.backinfile.gen.pb.Msg.DPlayer, com.backinfile.gen.pb.Msg.DPlayer.Builder, com.backinfile.gen.pb.Msg.DPlayerOrBuilder> senderBuilder_;
       /**
-       * <code>.DPlayer sender = 1;</code>
+       * <code>.DPlayer sender = 3;</code>
        * @return Whether the sender field is set.
        */
       public boolean hasSender() {
         return senderBuilder_ != null || sender_ != null;
       }
       /**
-       * <code>.DPlayer sender = 1;</code>
+       * <code>.DPlayer sender = 3;</code>
        * @return The sender.
        */
       public com.backinfile.gen.pb.Msg.DPlayer getSender() {
@@ -1033,7 +1186,7 @@ public final class Msg {
         }
       }
       /**
-       * <code>.DPlayer sender = 1;</code>
+       * <code>.DPlayer sender = 3;</code>
        */
       public Builder setSender(com.backinfile.gen.pb.Msg.DPlayer value) {
         if (senderBuilder_ == null) {
@@ -1049,7 +1202,7 @@ public final class Msg {
         return this;
       }
       /**
-       * <code>.DPlayer sender = 1;</code>
+       * <code>.DPlayer sender = 3;</code>
        */
       public Builder setSender(
           com.backinfile.gen.pb.Msg.DPlayer.Builder builderForValue) {
@@ -1063,7 +1216,7 @@ public final class Msg {
         return this;
       }
       /**
-       * <code>.DPlayer sender = 1;</code>
+       * <code>.DPlayer sender = 3;</code>
        */
       public Builder mergeSender(com.backinfile.gen.pb.Msg.DPlayer value) {
         if (senderBuilder_ == null) {
@@ -1081,7 +1234,7 @@ public final class Msg {
         return this;
       }
       /**
-       * <code>.DPlayer sender = 1;</code>
+       * <code>.DPlayer sender = 3;</code>
        */
       public Builder clearSender() {
         if (senderBuilder_ == null) {
@@ -1095,7 +1248,7 @@ public final class Msg {
         return this;
       }
       /**
-       * <code>.DPlayer sender = 1;</code>
+       * <code>.DPlayer sender = 3;</code>
        */
       public com.backinfile.gen.pb.Msg.DPlayer.Builder getSenderBuilder() {
         
@@ -1103,7 +1256,7 @@ public final class Msg {
         return getSenderFieldBuilder().getBuilder();
       }
       /**
-       * <code>.DPlayer sender = 1;</code>
+       * <code>.DPlayer sender = 3;</code>
        */
       public com.backinfile.gen.pb.Msg.DPlayerOrBuilder getSenderOrBuilder() {
         if (senderBuilder_ != null) {
@@ -1114,7 +1267,7 @@ public final class Msg {
         }
       }
       /**
-       * <code>.DPlayer sender = 1;</code>
+       * <code>.DPlayer sender = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           com.backinfile.gen.pb.Msg.DPlayer, com.backinfile.gen.pb.Msg.DPlayer.Builder, com.backinfile.gen.pb.Msg.DPlayerOrBuilder> 
@@ -1134,14 +1287,14 @@ public final class Msg {
       private com.google.protobuf.SingleFieldBuilderV3<
           com.backinfile.gen.pb.Msg.DPlayer, com.backinfile.gen.pb.Msg.DPlayer.Builder, com.backinfile.gen.pb.Msg.DPlayerOrBuilder> receiverBuilder_;
       /**
-       * <code>.DPlayer receiver = 2;</code>
+       * <code>.DPlayer receiver = 4;</code>
        * @return Whether the receiver field is set.
        */
       public boolean hasReceiver() {
         return receiverBuilder_ != null || receiver_ != null;
       }
       /**
-       * <code>.DPlayer receiver = 2;</code>
+       * <code>.DPlayer receiver = 4;</code>
        * @return The receiver.
        */
       public com.backinfile.gen.pb.Msg.DPlayer getReceiver() {
@@ -1152,7 +1305,7 @@ public final class Msg {
         }
       }
       /**
-       * <code>.DPlayer receiver = 2;</code>
+       * <code>.DPlayer receiver = 4;</code>
        */
       public Builder setReceiver(com.backinfile.gen.pb.Msg.DPlayer value) {
         if (receiverBuilder_ == null) {
@@ -1168,7 +1321,7 @@ public final class Msg {
         return this;
       }
       /**
-       * <code>.DPlayer receiver = 2;</code>
+       * <code>.DPlayer receiver = 4;</code>
        */
       public Builder setReceiver(
           com.backinfile.gen.pb.Msg.DPlayer.Builder builderForValue) {
@@ -1182,7 +1335,7 @@ public final class Msg {
         return this;
       }
       /**
-       * <code>.DPlayer receiver = 2;</code>
+       * <code>.DPlayer receiver = 4;</code>
        */
       public Builder mergeReceiver(com.backinfile.gen.pb.Msg.DPlayer value) {
         if (receiverBuilder_ == null) {
@@ -1200,7 +1353,7 @@ public final class Msg {
         return this;
       }
       /**
-       * <code>.DPlayer receiver = 2;</code>
+       * <code>.DPlayer receiver = 4;</code>
        */
       public Builder clearReceiver() {
         if (receiverBuilder_ == null) {
@@ -1214,7 +1367,7 @@ public final class Msg {
         return this;
       }
       /**
-       * <code>.DPlayer receiver = 2;</code>
+       * <code>.DPlayer receiver = 4;</code>
        */
       public com.backinfile.gen.pb.Msg.DPlayer.Builder getReceiverBuilder() {
         
@@ -1222,7 +1375,7 @@ public final class Msg {
         return getReceiverFieldBuilder().getBuilder();
       }
       /**
-       * <code>.DPlayer receiver = 2;</code>
+       * <code>.DPlayer receiver = 4;</code>
        */
       public com.backinfile.gen.pb.Msg.DPlayerOrBuilder getReceiverOrBuilder() {
         if (receiverBuilder_ != null) {
@@ -1233,7 +1386,7 @@ public final class Msg {
         }
       }
       /**
-       * <code>.DPlayer receiver = 2;</code>
+       * <code>.DPlayer receiver = 4;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           com.backinfile.gen.pb.Msg.DPlayer, com.backinfile.gen.pb.Msg.DPlayer.Builder, com.backinfile.gen.pb.Msg.DPlayerOrBuilder> 
@@ -1251,7 +1404,7 @@ public final class Msg {
 
       private java.lang.Object content_ = "";
       /**
-       * <code>string content = 3;</code>
+       * <code>string content = 5;</code>
        * @return The content.
        */
       public java.lang.String getContent() {
@@ -1267,7 +1420,7 @@ public final class Msg {
         }
       }
       /**
-       * <code>string content = 3;</code>
+       * <code>string content = 5;</code>
        * @return The bytes for content.
        */
       public com.google.protobuf.ByteString
@@ -1284,7 +1437,7 @@ public final class Msg {
         }
       }
       /**
-       * <code>string content = 3;</code>
+       * <code>string content = 5;</code>
        * @param value The content to set.
        * @return This builder for chaining.
        */
@@ -1299,7 +1452,7 @@ public final class Msg {
         return this;
       }
       /**
-       * <code>string content = 3;</code>
+       * <code>string content = 5;</code>
        * @return This builder for chaining.
        */
       public Builder clearContent() {
@@ -1309,7 +1462,7 @@ public final class Msg {
         return this;
       }
       /**
-       * <code>string content = 3;</code>
+       * <code>string content = 5;</code>
        * @param value The bytes for content to set.
        * @return This builder for chaining.
        */
@@ -1327,14 +1480,14 @@ public final class Msg {
 
       private int type_ = 0;
       /**
-       * <code>.EChatType type = 4;</code>
+       * <code>.EChatType type = 6;</code>
        * @return The enum numeric value on the wire for type.
        */
       @java.lang.Override public int getTypeValue() {
         return type_;
       }
       /**
-       * <code>.EChatType type = 4;</code>
+       * <code>.EChatType type = 6;</code>
        * @param value The enum numeric value on the wire for type to set.
        * @return This builder for chaining.
        */
@@ -1345,7 +1498,7 @@ public final class Msg {
         return this;
       }
       /**
-       * <code>.EChatType type = 4;</code>
+       * <code>.EChatType type = 6;</code>
        * @return The type.
        */
       @java.lang.Override
@@ -1355,7 +1508,7 @@ public final class Msg {
         return result == null ? com.backinfile.gen.pb.Msg.EChatType.UNRECOGNIZED : result;
       }
       /**
-       * <code>.EChatType type = 4;</code>
+       * <code>.EChatType type = 6;</code>
        * @param value The type to set.
        * @return This builder for chaining.
        */
@@ -1369,7 +1522,7 @@ public final class Msg {
         return this;
       }
       /**
-       * <code>.EChatType type = 4;</code>
+       * <code>.EChatType type = 6;</code>
        * @return This builder for chaining.
        */
       public Builder clearType() {
@@ -5320,6 +5473,1050 @@ public final class Msg {
 
   }
 
+  public interface SDisconnectOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:SDisconnect)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int32 type = 1;</code>
+     * @return The type.
+     */
+    int getType();
+  }
+  /**
+   * Protobuf type {@code SDisconnect}
+   */
+  public static final class SDisconnect extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:SDisconnect)
+      SDisconnectOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use SDisconnect.newBuilder() to construct.
+    private SDisconnect(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private SDisconnect() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new SDisconnect();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.backinfile.gen.pb.Msg.internal_static_SDisconnect_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.backinfile.gen.pb.Msg.internal_static_SDisconnect_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.backinfile.gen.pb.Msg.SDisconnect.class, com.backinfile.gen.pb.Msg.SDisconnect.Builder.class);
+    }
+
+    public static final int TYPE_FIELD_NUMBER = 1;
+    private int type_;
+    /**
+     * <code>int32 type = 1;</code>
+     * @return The type.
+     */
+    @java.lang.Override
+    public int getType() {
+      return type_;
+    }
+
+    public static com.backinfile.gen.pb.Msg.SDisconnect parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.backinfile.gen.pb.Msg.SDisconnect parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.backinfile.gen.pb.Msg.SDisconnect parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.backinfile.gen.pb.Msg.SDisconnect parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.backinfile.gen.pb.Msg.SDisconnect parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.backinfile.gen.pb.Msg.SDisconnect parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.backinfile.gen.pb.Msg.SDisconnect parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.backinfile.gen.pb.Msg.SDisconnect parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.backinfile.gen.pb.Msg.SDisconnect parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.backinfile.gen.pb.Msg.SDisconnect parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.backinfile.gen.pb.Msg.SDisconnect parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.backinfile.gen.pb.Msg.SDisconnect parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.backinfile.gen.pb.Msg.SDisconnect prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code SDisconnect}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:SDisconnect)
+        com.backinfile.gen.pb.Msg.SDisconnectOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.backinfile.gen.pb.Msg.internal_static_SDisconnect_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.backinfile.gen.pb.Msg.internal_static_SDisconnect_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.backinfile.gen.pb.Msg.SDisconnect.class, com.backinfile.gen.pb.Msg.SDisconnect.Builder.class);
+      }
+
+      // Construct using com.backinfile.gen.pb.Msg.SDisconnect.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        type_ = 0;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.backinfile.gen.pb.Msg.internal_static_SDisconnect_descriptor;
+      }
+
+      @java.lang.Override
+      public com.backinfile.gen.pb.Msg.SDisconnect getDefaultInstanceForType() {
+        return com.backinfile.gen.pb.Msg.SDisconnect.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.backinfile.gen.pb.Msg.SDisconnect build() {
+        com.backinfile.gen.pb.Msg.SDisconnect result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.backinfile.gen.pb.Msg.SDisconnect buildPartial() {
+        com.backinfile.gen.pb.Msg.SDisconnect result = new com.backinfile.gen.pb.Msg.SDisconnect(this);
+        result.type_ = type_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+
+      private int type_ ;
+      /**
+       * <code>int32 type = 1;</code>
+       * @return The type.
+       */
+      @java.lang.Override
+      public int getType() {
+        return type_;
+      }
+      /**
+       * <code>int32 type = 1;</code>
+       * @param value The type to set.
+       * @return This builder for chaining.
+       */
+      public Builder setType(int value) {
+        
+        type_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 type = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearType() {
+        
+        type_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:SDisconnect)
+    }
+
+    // @@protoc_insertion_point(class_scope:SDisconnect)
+    private static final com.backinfile.gen.pb.Msg.SDisconnect DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.backinfile.gen.pb.Msg.SDisconnect();
+    }
+
+    public static com.backinfile.gen.pb.Msg.SDisconnect getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<SDisconnect>
+        PARSER = new com.google.protobuf.AbstractParser<SDisconnect>() {
+      @java.lang.Override
+      public SDisconnect parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(
+              e.getMessage()).setUnfinishedMessage(
+                  builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<SDisconnect> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<SDisconnect> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.backinfile.gen.pb.Msg.SDisconnect getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface CSPingOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:CSPing)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int64 time = 1;</code>
+     * @return The time.
+     */
+    long getTime();
+  }
+  /**
+   * Protobuf type {@code CSPing}
+   */
+  public static final class CSPing extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:CSPing)
+      CSPingOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use CSPing.newBuilder() to construct.
+    private CSPing(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private CSPing() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new CSPing();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.backinfile.gen.pb.Msg.internal_static_CSPing_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.backinfile.gen.pb.Msg.internal_static_CSPing_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.backinfile.gen.pb.Msg.CSPing.class, com.backinfile.gen.pb.Msg.CSPing.Builder.class);
+    }
+
+    public static final int TIME_FIELD_NUMBER = 1;
+    private long time_;
+    /**
+     * <code>int64 time = 1;</code>
+     * @return The time.
+     */
+    @java.lang.Override
+    public long getTime() {
+      return time_;
+    }
+
+    public static com.backinfile.gen.pb.Msg.CSPing parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.backinfile.gen.pb.Msg.CSPing parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.backinfile.gen.pb.Msg.CSPing parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.backinfile.gen.pb.Msg.CSPing parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.backinfile.gen.pb.Msg.CSPing parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.backinfile.gen.pb.Msg.CSPing parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.backinfile.gen.pb.Msg.CSPing parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.backinfile.gen.pb.Msg.CSPing parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.backinfile.gen.pb.Msg.CSPing parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.backinfile.gen.pb.Msg.CSPing parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.backinfile.gen.pb.Msg.CSPing parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.backinfile.gen.pb.Msg.CSPing parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.backinfile.gen.pb.Msg.CSPing prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code CSPing}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:CSPing)
+        com.backinfile.gen.pb.Msg.CSPingOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.backinfile.gen.pb.Msg.internal_static_CSPing_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.backinfile.gen.pb.Msg.internal_static_CSPing_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.backinfile.gen.pb.Msg.CSPing.class, com.backinfile.gen.pb.Msg.CSPing.Builder.class);
+      }
+
+      // Construct using com.backinfile.gen.pb.Msg.CSPing.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        time_ = 0L;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.backinfile.gen.pb.Msg.internal_static_CSPing_descriptor;
+      }
+
+      @java.lang.Override
+      public com.backinfile.gen.pb.Msg.CSPing getDefaultInstanceForType() {
+        return com.backinfile.gen.pb.Msg.CSPing.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.backinfile.gen.pb.Msg.CSPing build() {
+        com.backinfile.gen.pb.Msg.CSPing result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.backinfile.gen.pb.Msg.CSPing buildPartial() {
+        com.backinfile.gen.pb.Msg.CSPing result = new com.backinfile.gen.pb.Msg.CSPing(this);
+        result.time_ = time_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+
+      private long time_ ;
+      /**
+       * <code>int64 time = 1;</code>
+       * @return The time.
+       */
+      @java.lang.Override
+      public long getTime() {
+        return time_;
+      }
+      /**
+       * <code>int64 time = 1;</code>
+       * @param value The time to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTime(long value) {
+        
+        time_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 time = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTime() {
+        
+        time_ = 0L;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:CSPing)
+    }
+
+    // @@protoc_insertion_point(class_scope:CSPing)
+    private static final com.backinfile.gen.pb.Msg.CSPing DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.backinfile.gen.pb.Msg.CSPing();
+    }
+
+    public static com.backinfile.gen.pb.Msg.CSPing getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<CSPing>
+        PARSER = new com.google.protobuf.AbstractParser<CSPing>() {
+      @java.lang.Override
+      public CSPing parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(
+              e.getMessage()).setUnfinishedMessage(
+                  builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<CSPing> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<CSPing> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.backinfile.gen.pb.Msg.CSPing getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface SCPingOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:SCPing)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int64 time = 1;</code>
+     * @return The time.
+     */
+    long getTime();
+  }
+  /**
+   * Protobuf type {@code SCPing}
+   */
+  public static final class SCPing extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:SCPing)
+      SCPingOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use SCPing.newBuilder() to construct.
+    private SCPing(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private SCPing() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new SCPing();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.backinfile.gen.pb.Msg.internal_static_SCPing_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.backinfile.gen.pb.Msg.internal_static_SCPing_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.backinfile.gen.pb.Msg.SCPing.class, com.backinfile.gen.pb.Msg.SCPing.Builder.class);
+    }
+
+    public static final int TIME_FIELD_NUMBER = 1;
+    private long time_;
+    /**
+     * <code>int64 time = 1;</code>
+     * @return The time.
+     */
+    @java.lang.Override
+    public long getTime() {
+      return time_;
+    }
+
+    public static com.backinfile.gen.pb.Msg.SCPing parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.backinfile.gen.pb.Msg.SCPing parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.backinfile.gen.pb.Msg.SCPing parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.backinfile.gen.pb.Msg.SCPing parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.backinfile.gen.pb.Msg.SCPing parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.backinfile.gen.pb.Msg.SCPing parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.backinfile.gen.pb.Msg.SCPing parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.backinfile.gen.pb.Msg.SCPing parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.backinfile.gen.pb.Msg.SCPing parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.backinfile.gen.pb.Msg.SCPing parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.backinfile.gen.pb.Msg.SCPing parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.backinfile.gen.pb.Msg.SCPing parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.backinfile.gen.pb.Msg.SCPing prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code SCPing}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:SCPing)
+        com.backinfile.gen.pb.Msg.SCPingOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.backinfile.gen.pb.Msg.internal_static_SCPing_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.backinfile.gen.pb.Msg.internal_static_SCPing_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.backinfile.gen.pb.Msg.SCPing.class, com.backinfile.gen.pb.Msg.SCPing.Builder.class);
+      }
+
+      // Construct using com.backinfile.gen.pb.Msg.SCPing.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        time_ = 0L;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.backinfile.gen.pb.Msg.internal_static_SCPing_descriptor;
+      }
+
+      @java.lang.Override
+      public com.backinfile.gen.pb.Msg.SCPing getDefaultInstanceForType() {
+        return com.backinfile.gen.pb.Msg.SCPing.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.backinfile.gen.pb.Msg.SCPing build() {
+        com.backinfile.gen.pb.Msg.SCPing result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.backinfile.gen.pb.Msg.SCPing buildPartial() {
+        com.backinfile.gen.pb.Msg.SCPing result = new com.backinfile.gen.pb.Msg.SCPing(this);
+        result.time_ = time_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+
+      private long time_ ;
+      /**
+       * <code>int64 time = 1;</code>
+       * @return The time.
+       */
+      @java.lang.Override
+      public long getTime() {
+        return time_;
+      }
+      /**
+       * <code>int64 time = 1;</code>
+       * @param value The time to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTime(long value) {
+        
+        time_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 time = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTime() {
+        
+        time_ = 0L;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:SCPing)
+    }
+
+    // @@protoc_insertion_point(class_scope:SCPing)
+    private static final com.backinfile.gen.pb.Msg.SCPing DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.backinfile.gen.pb.Msg.SCPing();
+    }
+
+    public static com.backinfile.gen.pb.Msg.SCPing getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<SCPing>
+        PARSER = new com.google.protobuf.AbstractParser<SCPing>() {
+      @java.lang.Override
+      public SCPing parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(
+              e.getMessage()).setUnfinishedMessage(
+                  builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<SCPing> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<SCPing> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.backinfile.gen.pb.Msg.SCPing getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface CSGetRoomInfoOrBuilder extends
       // @@protoc_insertion_point(interface_extends:CSGetRoomInfo)
       com.google.protobuf.MessageOrBuilder {
@@ -8029,6 +9226,21 @@ public final class Msg {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_SCConnect_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_SDisconnect_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_SDisconnect_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_CSPing_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_CSPing_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_SCPing_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_SCPing_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_CSGetRoomInfo_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -8062,27 +9274,30 @@ public final class Msg {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\rmsg/msg.proto\"\027\n\007DPlayer\022\014\n\004name\030\001 \001(\t" +
-      "\"h\n\005DChat\022\030\n\006sender\030\001 \001(\0132\010.DPlayer\022\032\n\010r" +
-      "eceiver\030\002 \001(\0132\010.DPlayer\022\017\n\007content\030\003 \001(\t" +
-      "\022\030\n\004type\030\004 \001(\0162\n.EChatType\"C\n\014DMatchPlay" +
-      "er\022\030\n\006player\030\001 \001(\0132\010.DPlayer\022\n\n\002CD\030\002 \001(\003" +
-      "\022\r\n\005ready\030\003 \001(\010\">\n\006DMatch\022\031\n\002p1\030\001 \001(\0132\r." +
-      "DMatchPlayer\022\031\n\002p2\030\002 \001(\0132\r.DMatchPlayer\"" +
-      "n\n\005DRoom\022\024\n\014hostLocation\030\001 \001(\t\022\026\n\004host\030\002" +
-      " \001(\0132\010.DPlayer\022\031\n\007players\030\003 \003(\0132\010.DPlaye" +
-      "r\022\034\n\014lastestChats\030\004 \003(\0132\006.DChat\"\023\n\005DCard" +
-      "\022\n\n\002sn\030\001 \001(\005\"\010\n\006DBoard\"\031\n\tCSConnect\022\014\n\004n" +
-      "ame\030\001 \001(\t\"\031\n\tSCConnect\022\014\n\004code\030\001 \001(\005\"\017\n\r" +
-      "CSGetRoomInfo\"=\n\rSCGetRoomInfo\022\024\n\004room\030\001" +
-      " \001(\0132\006.DRoom\022\026\n\005match\030\002 \001(\0132\007.DMatch\"$\n\014" +
-      "SCRoomUpdate\022\024\n\004room\030\001 \001(\0132\006.DRoom\"\'\n\rSC" +
-      "MatchUpdate\022\026\n\005match\030\001 \001(\0132\007.DMatch\"@\n\013S" +
-      "CGameStart\022\031\n\007players\030\001 \003(\0132\010.DPlayer\022\026\n" +
-      "\005board\030\002 \001(\0132\007.DBoard*C\n\tEChatType\022\010\n\004Ch" +
-      "at\020\000\022\n\n\006System\020\001\022\010\n\004Room\020\002\022\013\n\007Private\020\003\022" +
-      "\t\n\005Board\020\004B\031\n\025com.backinfile.gen.pbH\002b\006p" +
-      "roto3"
+      "\n\rmsg/msg.proto\"#\n\007DPlayer\022\014\n\004name\030\001 \001(\t" +
+      "\022\n\n\002id\030\002 \001(\003\"\202\001\n\005DChat\022\n\n\002id\030\001 \001(\003\022\014\n\004ti" +
+      "me\030\002 \001(\003\022\030\n\006sender\030\003 \001(\0132\010.DPlayer\022\032\n\010re" +
+      "ceiver\030\004 \001(\0132\010.DPlayer\022\017\n\007content\030\005 \001(\t\022" +
+      "\030\n\004type\030\006 \001(\0162\n.EChatType\"C\n\014DMatchPlaye" +
+      "r\022\030\n\006player\030\001 \001(\0132\010.DPlayer\022\n\n\002CD\030\002 \001(\003\022" +
+      "\r\n\005ready\030\003 \001(\010\">\n\006DMatch\022\031\n\002p1\030\001 \001(\0132\r.D" +
+      "MatchPlayer\022\031\n\002p2\030\002 \001(\0132\r.DMatchPlayer\"n" +
+      "\n\005DRoom\022\024\n\014hostLocation\030\001 \001(\t\022\026\n\004host\030\002 " +
+      "\001(\0132\010.DPlayer\022\031\n\007players\030\003 \003(\0132\010.DPlayer" +
+      "\022\034\n\014lastestChats\030\004 \003(\0132\006.DChat\"\023\n\005DCard\022" +
+      "\n\n\002sn\030\001 \001(\005\"\010\n\006DBoard\"\031\n\tCSConnect\022\014\n\004na" +
+      "me\030\001 \001(\t\"\031\n\tSCConnect\022\014\n\004code\030\001 \001(\005\"\033\n\013S" +
+      "Disconnect\022\014\n\004type\030\001 \001(\005\"\026\n\006CSPing\022\014\n\004ti" +
+      "me\030\001 \001(\003\"\026\n\006SCPing\022\014\n\004time\030\001 \001(\003\"\017\n\rCSGe" +
+      "tRoomInfo\"=\n\rSCGetRoomInfo\022\024\n\004room\030\001 \001(\013" +
+      "2\006.DRoom\022\026\n\005match\030\002 \001(\0132\007.DMatch\"$\n\014SCRo" +
+      "omUpdate\022\024\n\004room\030\001 \001(\0132\006.DRoom\"\'\n\rSCMatc" +
+      "hUpdate\022\026\n\005match\030\001 \001(\0132\007.DMatch\"@\n\013SCGam" +
+      "eStart\022\031\n\007players\030\001 \003(\0132\010.DPlayer\022\026\n\005boa" +
+      "rd\030\002 \001(\0132\007.DBoard*C\n\tEChatType\022\010\n\004Chat\020\000" +
+      "\022\n\n\006System\020\001\022\010\n\004Room\020\002\022\013\n\007Private\020\003\022\t\n\005B" +
+      "oard\020\004B\031\n\025com.backinfile.gen.pbH\002b\006proto" +
+      "3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -8093,13 +9308,13 @@ public final class Msg {
     internal_static_DPlayer_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_DPlayer_descriptor,
-        new java.lang.String[] { "Name", });
+        new java.lang.String[] { "Name", "Id", });
     internal_static_DChat_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_DChat_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_DChat_descriptor,
-        new java.lang.String[] { "Sender", "Receiver", "Content", "Type", });
+        new java.lang.String[] { "Id", "Time", "Sender", "Receiver", "Content", "Type", });
     internal_static_DMatchPlayer_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_DMatchPlayer_fieldAccessorTable = new
@@ -8142,32 +9357,50 @@ public final class Msg {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_SCConnect_descriptor,
         new java.lang.String[] { "Code", });
-    internal_static_CSGetRoomInfo_descriptor =
+    internal_static_SDisconnect_descriptor =
       getDescriptor().getMessageTypes().get(9);
+    internal_static_SDisconnect_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_SDisconnect_descriptor,
+        new java.lang.String[] { "Type", });
+    internal_static_CSPing_descriptor =
+      getDescriptor().getMessageTypes().get(10);
+    internal_static_CSPing_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_CSPing_descriptor,
+        new java.lang.String[] { "Time", });
+    internal_static_SCPing_descriptor =
+      getDescriptor().getMessageTypes().get(11);
+    internal_static_SCPing_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_SCPing_descriptor,
+        new java.lang.String[] { "Time", });
+    internal_static_CSGetRoomInfo_descriptor =
+      getDescriptor().getMessageTypes().get(12);
     internal_static_CSGetRoomInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_CSGetRoomInfo_descriptor,
         new java.lang.String[] { });
     internal_static_SCGetRoomInfo_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_SCGetRoomInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_SCGetRoomInfo_descriptor,
         new java.lang.String[] { "Room", "Match", });
     internal_static_SCRoomUpdate_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(14);
     internal_static_SCRoomUpdate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_SCRoomUpdate_descriptor,
         new java.lang.String[] { "Room", });
     internal_static_SCMatchUpdate_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(15);
     internal_static_SCMatchUpdate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_SCMatchUpdate_descriptor,
         new java.lang.String[] { "Match", });
     internal_static_SCGameStart_descriptor =
-      getDescriptor().getMessageTypes().get(13);
+      getDescriptor().getMessageTypes().get(16);
     internal_static_SCGameStart_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_SCGameStart_descriptor,

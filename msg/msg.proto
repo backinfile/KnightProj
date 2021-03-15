@@ -10,6 +10,7 @@ option optimize_for = CODE_SIZE;
 
 message DPlayer {
 	string name = 1;
+	int64 id = 2;
 }
 
 enum EChatType {
@@ -22,10 +23,12 @@ enum EChatType {
 
 // 聊天信息
 message DChat {
-	DPlayer sender = 1;
-	DPlayer receiver = 2;
-	string content = 3;
-	EChatType type = 4;
+	int64 id = 1;
+	int64 time = 2;
+	DPlayer sender = 3;
+	DPlayer receiver = 4;
+	string content = 5;
+	EChatType type = 6;
 }
 
 message DMatchPlayer {
@@ -48,6 +51,7 @@ message DRoom {
 
 message DCard {
 	int32 sn = 1;
+	int32 id = 2;
 }
 message DBoard {
 	
@@ -64,6 +68,17 @@ message CSConnect {
 message SCConnect {
 	int32 code = 1;
 }
+message SDisconnect {
+	int32 type = 1;
+}
+
+message CSPing {
+	int64 time = 1;
+}
+message SCPing {
+	int64 time = 1;
+}
+
 
 message CSGetRoomInfo {
 }
