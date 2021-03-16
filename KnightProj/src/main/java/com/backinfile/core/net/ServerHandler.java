@@ -1,6 +1,5 @@
 package com.backinfile.core.net;
 
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 
 import com.backinfile.core.Log;

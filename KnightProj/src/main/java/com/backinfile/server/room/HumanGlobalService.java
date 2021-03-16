@@ -1,8 +1,7 @@
 package com.backinfile.server.room;
 
-import java.util.HashMap;
-
 import com.backinfile.core.GameMessage;
+import com.backinfile.core.Service;
 import com.backinfile.core.net.Connection;
 import com.backinfile.gen.pb.Msg.CSConnect;
 import com.backinfile.gen.pb.Msg.CSPing;
@@ -10,7 +9,7 @@ import com.backinfile.gen.pb.Msg.SCPing;
 import com.backinfile.support.Time2;
 import com.google.protobuf.Message;
 
-public class HumanGlobalService {
+public class HumanGlobalService extends Service {
 	private static final HumanGlobalService Instance = new HumanGlobalService();
 
 	public static HumanGlobalService getInstance() {
@@ -38,6 +37,24 @@ public class HumanGlobalService {
 		} else {
 			room.rename(connection.getId(), name);
 		}
+	}
+
+	@Override
+	public void startup() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void pulse() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void pulsePerSec() {
+		// TODO Auto-generated method stub
+
 	}
 
 }

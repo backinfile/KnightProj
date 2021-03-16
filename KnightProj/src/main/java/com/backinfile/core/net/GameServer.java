@@ -4,16 +4,12 @@ import com.backinfile.core.Const;
 import com.backinfile.core.GameMessage;
 import com.backinfile.core.Log;
 import com.backinfile.core.event.Event;
-import com.backinfile.core.event.EventKey;
 import com.backinfile.core.net.netty.Server;
-import com.backinfile.gen.pb.Msg.CSConnect;
-import com.backinfile.support.PairParam;
 import com.backinfile.support.Utils2;
 
 public class GameServer {
 	public static GameServer Instance;
 
-	private Thread serverThread;
 	// 维护客户端连接
 	private ConnectionMaintainer connectionMaintainer;
 	private Server server;
@@ -36,16 +32,9 @@ public class GameServer {
 		}
 		connectionMaintainer = new ConnectionMaintainer();
 		connectionMaintainer.startUp();
-		serverThread = new Thread(this::run);
-		serverThread.setDaemon(true);
-		serverThread.start();
 
 		isAlive = true;
 		closed = false;
-		Event.fireMessage(CSConnect.newBuilder().build(), new PairParam());
-	}
-
-	public void run() {
 	}
 
 	public void pulse() {
