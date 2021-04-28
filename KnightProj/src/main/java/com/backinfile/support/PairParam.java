@@ -4,11 +4,16 @@ import java.util.HashMap;
 
 import com.backinfile.core.Log;
 import com.backinfile.core.SysException;
+import com.backinfile.core.serilize.InputStream;
+import com.backinfile.core.serilize.OutputStream;
 
 public class PairParam implements Param {
 
 	private static final String DEFAULT_KEY = "_DEFAULT_KEY_";
-	private final HashMap<String, Object> params = new HashMap<>();
+	private HashMap<String, Object> params = new HashMap<>();
+
+	public PairParam() {
+	}
 
 	public PairParam(Object... args) {
 		if (args.length == 0) {
@@ -46,6 +51,16 @@ public class PairParam implements Param {
 	@Override
 	public boolean contains() {
 		return params.containsKey(DEFAULT_KEY);
+	}
+
+	@Override
+	public void writeTo(OutputStream out) {
+		out.write(params);
+	}
+
+	@Override
+	public void readFrom(InputStream in) {
+		params = in.read();
 	}
 
 }

@@ -5,6 +5,9 @@ import com.backinfile.core.GameMessage;
 import com.backinfile.core.Log;
 import com.backinfile.core.event.Event;
 import com.backinfile.core.net.netty.Server;
+import com.backinfile.mrpc.core.Node;
+import com.backinfile.mrpc.core.ShutdownThread;
+import com.backinfile.mrpc.serilize.SerializableManager;
 import com.backinfile.support.Utils2;
 
 public class GameServer {
@@ -23,6 +26,16 @@ public class GameServer {
 
 	public void start() {
 		Log.game.info("GameServer start");
+
+		SerializableManager.registerAll(); // 序列化
+
+		Node node = new Node("Test-Local");
+		node.localStartUp("mrpc.test");
+		ShutdownThread hook = new ShutdownThread();
+		Runtime.getRuntime().addShutdownHook(hook);
+		hook.start();
+		
+		
 		server = new Server();
 		try {
 			server.startServer(Const.GAMESERVER_PORT);
@@ -30,8 +43,6 @@ public class GameServer {
 			isAlive = false;
 			return;
 		}
-		connectionMaintainer = new ConnectionMaintainer();
-		connectionMaintainer.startUp();
 
 		isAlive = true;
 		closed = false;

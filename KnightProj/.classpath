@@ -37,5 +37,6 @@
 	<classpathentry kind="lib" path="libs/gdx-natives.jar"/>
 	<classpathentry kind="lib" path="libs/gdx-freetype-natives.jar"/>
 	<classpathentry kind="lib" path="libs/gdx-freetype.jar" sourcepath="libs/gdx-freetype-sources.jar"/>
+	<classpathentry kind="lib" path="libs/com.backinfile.mrpc.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

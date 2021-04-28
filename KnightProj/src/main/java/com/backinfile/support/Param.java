@@ -2,7 +2,9 @@ package com.backinfile.support;
 
 import java.util.function.Supplier;
 
-public interface Param {
+import com.backinfile.core.serilize.ISerializable;
+
+public interface Param extends ISerializable {
 
 	<T> T get(String name);
 

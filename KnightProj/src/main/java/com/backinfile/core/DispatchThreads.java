@@ -37,7 +37,7 @@ public class DispatchThreads {
 		while (!threadAbort) {
 
 			try {
-				run.apply();
+				run.invoke();
 			} catch (Exception e) {
 				Log.core.error("线程运行出错：{}", e);
 			}
