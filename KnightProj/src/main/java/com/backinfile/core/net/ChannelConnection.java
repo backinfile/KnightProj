@@ -16,7 +16,6 @@ public class ChannelConnection implements Delayed, Connection {
 
 	private Channel channel;
 	private ConcurrentLinkedQueue<GameMessage> sendList = new ConcurrentLinkedQueue<GameMessage>();
-	private ConcurrentLinkedQueue<GameMessage> reciveList = new ConcurrentLinkedQueue<GameMessage>();
 	private ConcurrentLinkedQueue<byte[]> inputList = new ConcurrentLinkedQueue<>();
 	private long time;
 	public static final int HZ = 1;
@@ -39,11 +38,7 @@ public class ChannelConnection implements Delayed, Connection {
 	}
 
 	public GameMessage getGameMessage() {
-		return reciveList.poll();
-	}
-
-	public ConcurrentLinkedQueue<GameMessage> getReciveList() {
-		return reciveList;
+		return null;
 	}
 
 	public void sendGameMessage(GameMessage gameMessage) {

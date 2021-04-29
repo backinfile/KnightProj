@@ -5,24 +5,21 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
+import com.backinfile.core.serilize.ISerializable;
+import com.backinfile.core.serilize.InputStream;
+import com.backinfile.core.serilize.OutputStream;
 import com.backinfile.support.ReflectionUtils;
-import com.backinfile.support.Time2;
 import com.backinfile.support.Utils2;
 import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.Message;
 
-public class GameMessage {
+public class GameMessage implements ISerializable {
 	private Message message;
-	private static final byte[] contentBytes = new byte[1024];
-	private int length;
-	private long createTime;
 
 	private GameMessage() {
-		createTime = Time2.getCurrentTimestamp();
 	}
 
 	public GameMessage(Message message) {
-		this();
 		this.message = message;
 	}
 
@@ -30,29 +27,29 @@ public class GameMessage {
 		this(builder.build());
 	}
 
-	public long getCreateTime() {
-		return createTime;
+	@Override
+	public void writeTo(OutputStream out) {
+		out.write(message);
+	}
+
+	@Override
+	public void readFrom(InputStream in) {
+		message = in.read();
 	}
 
 	public Message getMessage() {
 		return message;
 	}
 
-	/**
-	 * ！！重复利用了byte[]！！
-	 */
 	public byte[] getBytes() {
 		byte[] byteArray = message.toByteArray();
-		length = byteArray.length + 8;
-		Utils2.int2bytes(length, contentBytes, 0);
+		byte[] contentBytes = new byte[byteArray.length + 8];
+		Utils2.int2bytes(byteArray.length + 8, contentBytes, 0);
 		Utils2.int2bytes(getMessageHash(message), contentBytes, 4);
 		System.arraycopy(byteArray, 0, contentBytes, 8, byteArray.length);
 		return contentBytes;
 	}
 
-	public int getLength() {
-		return length;
-	}
 
 	public static GameMessage buildGameMessage(byte[] bytes, int offset, int len) {
 		if (len < 8 || bytes.length < 8)

@@ -14,6 +14,14 @@ import com.backinfile.core.net.ServerHandler;
 
 public class Server {
 
+	public void start(int port) {
+		try {
+			startServer(port);
+		} catch (InterruptedException e) {
+			Log.core.error("listen start error", e);
+		}
+	}
+
 	public void startServer(int port) throws InterruptedException {
 		// 第一步，创建线程池
 		EventLoopGroup bossGroup = new NioEventLoopGroup();

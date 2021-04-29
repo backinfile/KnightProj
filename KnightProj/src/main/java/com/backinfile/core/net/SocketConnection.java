@@ -93,7 +93,7 @@ public class SocketConnection implements Connection {
 		try {
 			while (!sendList.isEmpty()) {
 				GameMessage sendMsg = sendList.poll();
-				outputStream.write(sendMsg.getBytes(), 0, sendMsg.getLength());
+				outputStream.write(sendMsg.getBytes());
 				outputStream.flush();
 				Log.net.info("Connection {} send {}", this.toString(), sendMsg.toString());
 			}

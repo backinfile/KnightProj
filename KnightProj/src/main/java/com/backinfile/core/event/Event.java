@@ -11,20 +11,17 @@ import java.util.Set;
 
 import com.backinfile.core.GameMessage;
 import com.backinfile.core.Log;
-import com.backinfile.support.PairParam;
-import com.backinfile.support.Param;
+import com.backinfile.mrpc.core.Params;
 import com.backinfile.support.ReflectionUtils;
 import com.google.protobuf.Message;
-
-import javafx.stage.PopupWindow.AnchorLocation;
 
 public class Event {
 
 	public static void fire(EventKey eventKey, Object... param) {
-		fire(eventKey, new PairParam(param));
+		fire(eventKey, new Params(param));
 	}
 
-	public static void fire(EventKey eventKey, Param param) {
+	public static void fire(EventKey eventKey, Params param) {
 		List<Method> methods = eventHandler.get(eventKey);
 		if (methods == null) {
 			return;
@@ -38,7 +35,7 @@ public class Event {
 		}
 	}
 
-	public static void fireMessage(Message message, Param param) {
+	public static void fireMessage(Message message, Params param) {
 		int hashCode = GameMessage.getMessageHash(message);
 		List<Method> methods = messageHandler.get(hashCode);
 		if (methods == null) {
@@ -72,7 +69,7 @@ public class Event {
 				Class<?>[] parameterTypes = method.getParameterTypes();
 				Class<?> param1 = parameterTypes[0];
 				Class<?> param2 = parameterTypes[1];
-				if (!Param.class.isAssignableFrom(param2)) {
+				if (!Params.class.isAssignableFrom(param2)) {
 					continue;
 				}
 				if (!Message.class.isAssignableFrom(param1)) {
@@ -103,7 +100,7 @@ public class Event {
 
 				Class<?>[] parameterTypes = method.getParameterTypes();
 				Class<?> param1 = parameterTypes[0];
-				if (!Param.class.isAssignableFrom(param1)) {
+				if (!Params.class.isAssignableFrom(param1)) {
 					continue;
 				}
 				if (!eventHandler.containsKey(key)) {
