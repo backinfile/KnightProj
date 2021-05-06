@@ -15,7 +15,12 @@ public class GameScreen extends BaseScreen {
 		gameStage = new GameStage();
 		gameStage.setScreen(this);
 		gameStage.init();
+	}
+	
+	@Override
+	public void show() {
 		Gdx.input.setInputProcessor(gameStage);
+		super.show();
 	}
 
 	@Override

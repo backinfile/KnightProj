@@ -6,6 +6,10 @@ import java.util.concurrent.TimeUnit;
 
 import com.backinfile.core.GameMessage;
 import com.backinfile.core.Log;
+import com.backinfile.mrpc.core.Params;
+import com.backinfile.mrpc.core.Proxy;
+import com.backinfile.server.RequestKey;
+import com.backinfile.server.human.HumanGlobalService;
 import com.backinfile.support.Time2;
 import com.backinfile.support.Utils2;
 
@@ -71,12 +75,8 @@ public class ChannelConnection implements Delayed, Connection {
 				break;
 			GameMessage gameMessage = GameMessage.buildGameMessage(data, 0, data.length);
 			if (gameMessage != null) {
-				if (GameServer.Instance != null) {
-					GameServer.Instance.onReceiveGameMessage(getId(), gameMessage);
-				} else {
-					reciveList.add(gameMessage);
-					Log.net.info("Connection {} got {}", this.toString(), gameMessage.toString());
-				}
+				Proxy.request(HumanGlobalService.PORT_NAME, RequestKey.HUMAN_GLOBAL_HANDLE_MSG,
+						new Params("id", getId(), "msg", gameMessage));
 			}
 		}
 	}

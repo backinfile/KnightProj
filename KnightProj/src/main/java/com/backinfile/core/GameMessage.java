@@ -5,9 +5,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-import com.backinfile.core.serilize.ISerializable;
-import com.backinfile.core.serilize.InputStream;
-import com.backinfile.core.serilize.OutputStream;
+import com.backinfile.mrpc.serilize.ISerializable;
+import com.backinfile.mrpc.serilize.InputStream;
+import com.backinfile.mrpc.serilize.OutputStream;
 import com.backinfile.support.ReflectionUtils;
 import com.backinfile.support.Utils2;
 import com.google.protobuf.InvalidProtocolBufferException;

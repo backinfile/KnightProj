@@ -1,11 +1,11 @@
 package com.backinfile.server.human;
 
 import com.backinfile.core.GameMessage;
-import com.backinfile.core.serilize.ISerializable;
-import com.backinfile.core.serilize.InputStream;
-import com.backinfile.core.serilize.OutputStream;
 import com.backinfile.mrpc.core.Params;
 import com.backinfile.mrpc.core.Proxy;
+import com.backinfile.mrpc.serilize.ISerializable;
+import com.backinfile.mrpc.serilize.InputStream;
+import com.backinfile.mrpc.serilize.OutputStream;
 import com.backinfile.server.RequestKey;
 import com.backinfile.server.connect.ConnectionGlobalService;
 import com.backinfile.server.room.CommonRoom;

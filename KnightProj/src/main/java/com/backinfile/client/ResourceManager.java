@@ -44,15 +44,11 @@ public class ResourceManager {
 	public static StringContainer<CardStrings> CardStringContainer;
 
 	public static void init() {
-		Log.game.info("start loading resource...");
-
 		initImage();
 
 		initFont();
 
 		initText();
-
-		Log.game.info("resource loading complete");
 	}
 
 	private static void initImage() {

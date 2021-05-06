@@ -15,9 +15,13 @@ public class ClientStartup extends Game {
 
 	@Override
 	public void create() {
+		Log.game.info("初始化客户端配置...");
 		ClientPref.Init();
+		Log.game.info("注册消息...");
 		GameMessage.collectAllMessage();
+		Log.game.info("注册事件...");
 		Event.collectEventListener();
+		Log.game.info("加载资源...");
 		ResourceManager.init();
 
 		TestScreen testScreen = new TestScreen();
@@ -26,7 +30,12 @@ public class ClientStartup extends Game {
 		GameScreen gameScreen = new GameScreen();
 		gameScreen.init();
 
-		setScreen(gameScreen);
+		Log.game.info("加载场景...");
+		setScreen(testScreen);
+
+		Log.game.info("-------------");
+		Log.game.info("启动完成");
+		Log.game.info("-------------");
 	}
 
 	@Override
