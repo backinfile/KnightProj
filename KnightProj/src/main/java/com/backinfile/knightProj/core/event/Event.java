@@ -9,10 +9,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import com.backinfile.knightProj.core.Const;
 import com.backinfile.knightProj.core.GameMessage;
 import com.backinfile.knightProj.core.Log;
-import com.backinfile.knightProj.support.ReflectionUtils;
 import com.backinfile.mrpc.core.Params;
+import com.backinfile.mrpc.utils.ReflectionUtils;
 import com.google.protobuf.Message;
 
 public class Event {
@@ -54,7 +55,7 @@ public class Event {
 	private static final Map<EventKey, List<Method>> eventHandler = new HashMap<>();
 
 	public static void collectEventListener() {
-		Set<Class<?>> classes = ReflectionUtils.getClasses();
+		Set<Class<?>> classes = ReflectionUtils.getClassesExtendsClass(Const.PACKAGE_NAME, Object.class);
 		for (Class<?> clazz : classes) {
 			for (Method method : clazz.getMethods()) {
 				if (!Modifier.isStatic(method.getModifiers())) {

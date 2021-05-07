@@ -21,6 +21,7 @@ public abstract class CommonRoomService<T extends CommonRoom> extends Port {
 
 	@Override
 	public void pulse() {
+		room.roomPulse();
 	}
 
 	@Override

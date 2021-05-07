@@ -1,6 +1,9 @@
 package com.backinfile.knightProj.core.net.netty;
 
+import com.backinfile.knightProj.core.GameMessage;
 import com.backinfile.knightProj.core.Log;
+import com.backinfile.knightProj.gen.pb.Msg.CSConnect;
+import com.backinfile.knightProj.gen.pb.Msg.SCConnect;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
@@ -12,6 +15,8 @@ public class ClientHandler extends ChannelInboundHandlerAdapter {
 		// TODO Auto-generated method stub
 		super.channelActive(ctx);
 		Log.client.info("channelActive");
+
+		ctx.channel().writeAndFlush(new GameMessage(CSConnect.newBuilder().setName("哈哈啊")).getBytes());
 	}
 
 	@Override

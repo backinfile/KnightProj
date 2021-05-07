@@ -21,7 +21,6 @@ public class ServerLauncher {
 
 		Log.game.info("序列化注册中...");
 		SerializableManager.registerAll(Const.PACKAGE_NAME); // 序列化注册
-		SerializableManager.registerAll(Const.CORE_PACKAGE_NAME); // 序列化注册
 
 		Log.game.info("服务启动中...");
 		Node node = new Node(Const.GAME_NAME);

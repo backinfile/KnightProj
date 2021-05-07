@@ -1,6 +1,7 @@
 package com.backinfile.knightProj.server.room;
 
 import com.backinfile.knightProj.core.Const;
+import com.backinfile.knightProj.core.Log;
 import com.backinfile.mrpc.core.AutoStartUp;
 import com.backinfile.mrpc.core.Params;
 
@@ -15,14 +16,6 @@ public class ChatRoomService extends CommonRoomService<CommonRoom> {
 	@Override
 	public void startup() {
 		room = new CommonRoom(this);
-	}
-
-	@Override
-	public void pulse() {
-	}
-
-	@Override
-	public void pulsePerSec() {
 	}
 
 	@Override

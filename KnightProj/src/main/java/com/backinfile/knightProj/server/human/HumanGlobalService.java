@@ -72,6 +72,7 @@ public class HumanGlobalService extends Port {
 
 			// 返回消息
 			humanObject.sendMsg(SCConnect.newBuilder().setCode(0));
+			Log.game.info("human login id:{} name:{}", id, connectMsg.getName());
 		} else {
 			Log.game.warn("human no login id:{}", id);
 		}

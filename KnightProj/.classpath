@@ -21,6 +21,7 @@
 	<classpathentry kind="src" path="assets"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-10">
 		<attributes>
+			<attribute name="module" value="true"/>
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
@@ -37,6 +38,6 @@
 	<classpathentry kind="lib" path="libs/gdx-natives.jar"/>
 	<classpathentry kind="lib" path="libs/gdx-freetype-natives.jar"/>
 	<classpathentry kind="lib" path="libs/gdx-freetype.jar" sourcepath="libs/gdx-freetype-sources.jar"/>
-	<classpathentry kind="lib" path="libs/com.backinfile.mrpc.jar"/>
+	<classpathentry kind="lib" path="libs/mrpc.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

@@ -70,6 +70,7 @@ public class CommonRoom {
 			humanMap.put(humanObject.getId(), humanObject);
 			onHumanEnterRoom(humanObject);
 		}
+		enterHumans.clear();
 		for (var humanObject : leaveHumans) {
 			if (humanObject != null) {
 				onHumanLeaveRoom(humanObject);
@@ -78,6 +79,7 @@ public class CommonRoom {
 			humanObject.setRoomPortId(port.getPortId());
 			humanMap.remove(humanObject.getId());
 		}
+		leaveHumans.clear();
 	}
 
 	public TimerQueue geTimerQueue() {

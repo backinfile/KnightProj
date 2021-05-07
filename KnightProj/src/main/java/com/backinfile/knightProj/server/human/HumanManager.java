@@ -1,5 +1,6 @@
 package com.backinfile.knightProj.server.human;
 
+import com.backinfile.knightProj.core.GameMessage;
 import com.backinfile.knightProj.core.Log;
 import com.backinfile.knightProj.core.event.MsgHandler;
 import com.backinfile.knightProj.gen.pb.Msg.DChat;
@@ -10,5 +11,6 @@ public class HumanManager {
 	public static void onChat(DChat msg, Params params) {
 		HumanObject humanObject = params.getValue("humanObject");
 		Log.game.info("msg:{} id:{}", msg.getContent(), humanObject.getId());
+//		humanObject.sendMsg();
 	}
 }

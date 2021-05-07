@@ -5,18 +5,20 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-import com.backinfile.knightProj.support.ReflectionUtils;
 import com.backinfile.knightProj.support.Utils2;
 import com.backinfile.mrpc.serilize.ISerializable;
 import com.backinfile.mrpc.serilize.InputStream;
 import com.backinfile.mrpc.serilize.OutputStream;
+import com.backinfile.mrpc.utils.ReflectionUtils;
 import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.Message;
 
 public class GameMessage implements ISerializable {
 	private Message message;
 
-	private GameMessage() {
+	// 仅用于序列化
+	@Deprecated()
+	public GameMessage() {
 	}
 
 	public GameMessage(Message message) {
@@ -49,7 +51,6 @@ public class GameMessage implements ISerializable {
 		System.arraycopy(byteArray, 0, contentBytes, 8, byteArray.length);
 		return contentBytes;
 	}
-
 
 	public static GameMessage buildGameMessage(byte[] bytes, int offset, int len) {
 		if (len < 8 || bytes.length < 8)
@@ -94,7 +95,7 @@ public class GameMessage implements ISerializable {
 		if (!map.isEmpty()) {
 			return;
 		}
-		Set<Class<?>> classes = ReflectionUtils.getClassesExtendsClass(Message.class);
+		Set<Class<?>> classes = ReflectionUtils.getClassesExtendsClass(Const.PACKAGE_NAME, Message.class);
 		for (Class<?> clazz : classes) {
 			try {
 				Method method = clazz.getDeclaredMethod("newBuilder");
