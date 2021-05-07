@@ -2,6 +2,8 @@ package com.backinfile.knightProj.seam;
 
 import java.util.Scanner;
 
+import org.apache.logging.log4j.Level;
+
 import com.backinfile.knightProj.core.Const;
 import com.backinfile.knightProj.core.GameMessage;
 import com.backinfile.knightProj.core.Log;
@@ -13,6 +15,8 @@ import com.google.protobuf.Message;
 
 public class CommandlineClientLauncher {
 	public static void main(String[] args) {
+		Log.setLevel(Level.ERROR);
+
 		Log.game.info("消息注册中...");
 		GameMessage.collectAllMessage(); // 消息注册
 

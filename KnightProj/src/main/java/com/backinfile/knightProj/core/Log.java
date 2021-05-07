@@ -1,5 +1,8 @@
 package com.backinfile.knightProj.core;
 
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.core.config.Configurator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -15,5 +18,9 @@ public class Log {
 
 	private static Logger getLogger(String name) {
 		return LoggerFactory.getLogger(name.toUpperCase());
+	}
+
+	public static void setLevel(Level level) {
+		Configurator.setRootLevel(level);
 	}
 }

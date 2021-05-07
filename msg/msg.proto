@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option java_package = "com.backinfile.gen.pb";
+option java_package = "com.backinfile.knightProj.gen.pb";
 
 option optimize_for = CODE_SIZE;
 
