@@ -3,7 +3,6 @@ package com.backinfile.server;
 public class RequestKey {
 	public static final int PLAYER_LOGIN = 1000;
 	
-	public static final int CONNECTION_GLOBAL_ADD_CONNECTION = 1100; // 玩家建立连接
 	public static final int CONNECTION_GLOBAL_SEND_MSG = 1101;
 	
 

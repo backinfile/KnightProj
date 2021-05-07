@@ -15,7 +15,7 @@ public class ExceptionHandler extends ChannelDuplexHandler {
 	@Override
 	public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
 		super.exceptionCaught(ctx, cause);
-		Log.server.error("exceptionCaught {}", cause.getMessage());
+		Log.game.error("exceptionCaught {}", cause.getMessage());
 	}
 
 	@Override
@@ -25,7 +25,7 @@ public class ExceptionHandler extends ChannelDuplexHandler {
 			@Override
 			public void operationComplete(ChannelFuture future) {
 				if (!future.isSuccess()) {
-					Log.server.error("connect failed");
+					Log.game.error("connect failed");
 				}
 			}
 		}));

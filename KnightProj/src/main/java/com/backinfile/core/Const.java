@@ -19,4 +19,7 @@ public class Const {
 	public static final int CLIENT_CONNECT_TIME = 300; // 不活跃时间
 	public static final int SERVER_CONNECT_TIME = 3 * Time2.SECOND;
 	public static final String LOG_FILENAME = "./game.log";
+	
+	
+	public static final String LOCAL_HOST = "127.0.0.1";
 }

@@ -44,10 +44,6 @@ public class ConnectionGlobalService extends Port {
 	@Override
 	public void handleRequest(int requestKey, Params param) {
 		switch (requestKey) {
-		case RequestKey.CONNECTION_GLOBAL_ADD_CONNECTION:
-			addConnection(param.getValue("connection"));
-			break;
-
 		case RequestKey.CONNECTION_GLOBAL_SEND_MSG:
 			sendMsg(param.getValue("id"), param.getValue("msg"));
 			break;
@@ -56,7 +52,7 @@ public class ConnectionGlobalService extends Port {
 		}
 	}
 
-	private void addConnection(Connection connection) {
+	public void addConnection(Connection connection) {
 		connections.put(connection.getId(), connection);
 	}
 

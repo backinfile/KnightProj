@@ -59,6 +59,6 @@ public abstract class CommonRoomService<T extends CommonRoom> extends Port {
 			Log.game.error("no human handle msg id:{}", id);
 			return;
 		}
-		Event.fireMessage(msg.getMessage(), null);
+		Event.fireMessage(msg.getMessage(), new Params("humanObject", humanObject));
 	}
 }

@@ -1,10 +1,13 @@
-package com.backinfile.core.net;
+package com.backinfile.core.net.netty;
 
 import java.util.concurrent.atomic.AtomicLong;
 
 import com.backinfile.core.GameMessage;
 import com.backinfile.core.Log;
+import com.backinfile.core.net.ChannelConnection;
+import com.backinfile.mrpc.core.Node;
 import com.backinfile.mrpc.core.Params;
+import com.backinfile.mrpc.core.Port;
 import com.backinfile.mrpc.core.Proxy;
 import com.backinfile.server.RequestKey;
 import com.backinfile.server.connect.ConnectionGlobalService;
@@ -25,8 +28,13 @@ public class ServerHandler extends ChannelInboundHandlerAdapter {
 		long id = idAllot.incrementAndGet();
 		connection = new ChannelConnection(id, channel);
 
-		var params = new Params("connection", connection);
-		Proxy.request(ConnectionGlobalService.PORT_NAME, RequestKey.CONNECTION_GLOBAL_ADD_CONNECTION, params);
+		Port port = Node.Instance.getPort(ConnectionGlobalService.PORT_NAME);
+		if (port instanceof ConnectionGlobalService) {
+			var service = (ConnectionGlobalService) port;
+			service.post(() -> {
+				service.addConnection(connection);
+			});
+		}
 
 		connectionCount.incrementAndGet();
 		Log.server.info("channelActive id={}, num={}", connection.getId(), connectionCount);
